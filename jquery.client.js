@@ -14,7 +14,7 @@ $.client = new ( function() {
 	 * Returns an object containing information about the browser
 	 *
 	 * The resulting client object will be in the following format:
-	 *  {
+	 * 	{
 	 * 		'name': 'firefox',
 	 * 		'layout': 'gecko',
 	 * 		'layoutVersion': '20101026',
