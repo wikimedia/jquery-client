@@ -1,7 +1,7 @@
 /**
  * User-agent detection
  */
-( function( $ ) {
+( function ( $ ) {
 
 	/* Private Members */
 
@@ -18,7 +18,7 @@
 		/**
 		 * Get an object containing information about the client.
 		 *
-		 * @param nav {Object} An object with atleast a 'userAgent' and 'platform' key.=
+		 * @param nav {Object} An object with atleast a 'userAgent' and 'platform' key.
 		 * Defaults to the global Navigator object.
 		 * @return {Object} The resulting client object will be in the following format:
 		 *  {
@@ -31,75 +31,83 @@
 		 *   'versionNumber': 3.5,
 		 *  }
 		 */
-		profile: function( nav ) {
+		profile: function ( nav ) {
+			/*jshint boss: true */
+
 			if ( nav === undefined ) {
 				nav = window.navigator;
 			}
 			// Use the cached version if possible
 			if ( profileCache[nav.userAgent] === undefined ) {
 
-				/* Configuration */
+				var
+					versionNumber,
 
-				// Name of browsers or layout engines we don't recognize
-				var uk = 'unknown';
-				// Generic version digit
-				var x = 'x';
-				// Strings found in user agent strings that need to be conformed
-				var wildUserAgents = ['Opera', 'Navigator', 'Minefield', 'KHTML', 'Chrome', 'PLAYSTATION 3'];
-				// Translations for conforming user agent strings
-				var userAgentTranslations = [
-					// Tons of browsers lie about being something they are not
-					[/(Firefox|MSIE|KHTML,\slike\sGecko|Konqueror)/, ''],
-					// Chrome lives in the shadow of Safari still
-					['Chrome Safari', 'Chrome'],
-					// KHTML is the layout engine not the browser - LIES!
-					['KHTML', 'Konqueror'],
-					// Firefox nightly builds
-					['Minefield', 'Firefox'],
-					// This helps keep differnt versions consistent
-					['Navigator', 'Netscape'],
-					// This prevents version extraction issues, otherwise translation would happen later
-					['PLAYSTATION 3', 'PS3']
-				];
-				// Strings which precede a version number in a user agent string - combined and used as match 1 in
-				// version detectection
-				var versionPrefixes = [
-					'camino', 'chrome', 'firefox', 'netscape', 'netscape6', 'opera', 'version', 'konqueror', 'lynx',
-					'msie', 'safari', 'ps3'
-				];
-				// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual version number
-				var versionSuffix = '(\\/|\\;?\\s|)([a-z0-9\\.\\+]*?)(\\;|dev|rel|\\)|\\s|$)';
-				// Names of known browsers
-				var names = [
-					'camino', 'chrome', 'firefox', 'netscape', 'konqueror', 'lynx', 'msie', 'opera', 'safari', 'ipod',
-					'iphone', 'blackberry', 'ps3', 'rekonq'
-				];
-				// Tanslations for conforming browser names
-				var nameTranslations = [];
-				// Names of known layout engines
-				var layouts = ['gecko', 'konqueror', 'msie', 'opera', 'webkit'];
-				// Translations for conforming layout names
-				var layoutTranslations = [['konqueror', 'khtml'], ['msie', 'trident'], ['opera', 'presto']];
-				// Names of supported layout engines for version number
-				var layoutVersions = ['applewebkit', 'gecko'];
-				// Names of known operating systems
-				var platforms = ['win', 'mac', 'linux', 'sunos', 'solaris', 'iphone'];
-				// Translations for conforming operating system names
-				var platformTranslations = [['sunos', 'solaris']];
+					/* Configuration */
 
-				/* Methods */
+					// Name of browsers or layout engines we don't recognize
+					uk = 'unknown',
+					// Generic version digit
+					x = 'x',
+					// Strings found in user agent strings that need to be conformed
+					wildUserAgents = ['Opera', 'Navigator', 'Minefield', 'KHTML', 'Chrome', 'PLAYSTATION 3'],
+					// Translations for conforming user agent strings
+					userAgentTranslations = [
+						// Tons of browsers lie about being something they are not
+						[/(Firefox|MSIE|KHTML,\slike\sGecko|Konqueror)/, ''],
+						// Chrome lives in the shadow of Safari still
+						['Chrome Safari', 'Chrome'],
+						// KHTML is the layout engine not the browser - LIES!
+						['KHTML', 'Konqueror'],
+						// Firefox nightly builds
+						['Minefield', 'Firefox'],
+						// This helps keep differnt versions consistent
+						['Navigator', 'Netscape'],
+						// This prevents version extraction issues, otherwise translation would happen later
+						['PLAYSTATION 3', 'PS3']
+					],
+					// Strings which precede a version number in a user agent string - combined and used as match 1 in
+					// version detectection
+					versionPrefixes = [
+						'camino', 'chrome', 'firefox', 'netscape', 'netscape6', 'opera', 'version', 'konqueror',
+						'lynx', 'msie', 'safari', 'ps3'
+					],
+					// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual version number
+					versionSuffix = '(\\/|\\;?\\s|)([a-z0-9\\.\\+]*?)(\\;|dev|rel|\\)|\\s|$)',
+					// Names of known browsers
+					names = [
+						'camino', 'chrome', 'firefox', 'netscape', 'konqueror', 'lynx', 'msie', 'opera',
+						'safari', 'ipod', 'iphone', 'blackberry', 'ps3', 'rekonq'
+					],
+					// Tanslations for conforming browser names
+					nameTranslations = [],
+					// Names of known layout engines
+					layouts = ['gecko', 'konqueror', 'msie', 'opera', 'webkit'],
+					// Translations for conforming layout names
+					layoutTranslations = [ ['konqueror', 'khtml'], ['msie', 'trident'], ['opera', 'presto'] ],
+					// Names of supported layout engines for version number
+					layoutVersions = ['applewebkit', 'gecko'],
+					// Names of known operating systems
+					platforms = ['win', 'mac', 'linux', 'sunos', 'solaris', 'iphone'],
+					// Translations for conforming operating system names
+					platformTranslations = [ ['sunos', 'solaris'] ],
 
-				// Performs multiple replacements on a string
-				var translate = function( source, translations ) {
-					for ( var i = 0; i < translations.length; i++ ) {
-						source = source.replace( translations[i][0], translations[i][1] );
-					}
-					return source;
-				};
+					/* Methods */
 
-				/* Pre-processing */
+					/**
+					 * Performs multiple replacements on a string
+					 */
+					translate = function ( source, translations ) {
+						var i;
+						for ( i = 0; i < translations.length; i++ ) {
+							source = source.replace( translations[i][0], translations[i][1] );
+						}
+						return source;
+					},
 
-				var	ua = nav.userAgent,
+					/* Pre-processing */
+
+					ua = nav.userAgent,
 					match,
 					name = uk,
 					layout = uk,
@@ -142,18 +150,18 @@
 				if ( name === 'opera' && version >= 9.8) {
 					version = ua.match( /version\/([0-9\.]*)/i )[1] || 10;
 				}
-				var versionNumber = parseFloat( version, 10 ) || 0.0;
+				versionNumber = parseFloat( version, 10 ) || 0.0;
 
 				/* Caching */
 
 				profileCache[nav.userAgent] = {
-					'name': name,
-					'layout': layout,
-					'layoutVersion': layoutversion,
-					'platform': platform,
-					'version': version,
-					'versionBase': ( version !== x ? Math.floor( versionNumber ).toString() : x ),
-					'versionNumber': versionNumber
+					name: name,
+					layout: layout,
+					layoutVersion: layoutversion,
+					platform: platform,
+					version: version,
+					versionBase: ( version !== x ? Math.floor( versionNumber ).toString() : x ),
+					versionNumber: versionNumber
 				};
 			}
 			return profileCache[nav.userAgent];
@@ -185,26 +193,30 @@
 		 *
 		 * @return Boolean true if browser known or assumed to be supported, false if blacklisted
 		 */
-		test: function( map, profile ) {
+		test: function ( map, profile ) {
+			/*jshint evil: true */
+
+			var conditions, dir, i, op, val;
 			profile = $.isPlainObject( profile ) ? profile : $.client.profile();
 
-			var dir = $( 'body' ).is( '.rtl' ) ? 'rtl' : 'ltr';
+			dir = $( 'body' ).is( '.rtl' ) ? 'rtl' : 'ltr';
 			// Check over each browser condition to determine if we are running in a compatible client
-			if ( typeof map[dir] !== 'object' || typeof map[dir][profile.name] === 'undefined' ) {
+			if ( typeof map[dir] !== 'object' || map[dir][profile.name] === undefined ) {
 				// Unknown, so we assume it's working
 				return true;
 			}
-			var conditions = map[dir][profile.name];
-			for ( var i = 0; i < conditions.length; i++ ) {
-				var op = conditions[i][0];
-				var val = conditions[i][1];
+			conditions = map[dir][profile.name];
+			for ( i = 0; i < conditions.length; i++ ) {
+				op = conditions[i][0];
+				val = conditions[i][1];
 				if ( val === false ) {
 					return false;
-				} else if ( typeof val == 'string' ) {
+				}
+				if ( typeof val === 'string' ) {
 					if ( !( eval( 'profile.version' + op + '"' + val + '"' ) ) ) {
 						return false;
 					}
-				} else if ( typeof val == 'number' ) {
+				} else if ( typeof val === 'number' ) {
 					if ( !( eval( 'profile.versionNumber' + op + val ) ) ) {
 						return false;
 					}
@@ -213,4 +225,4 @@
 			return true;
 		}
 	};
-} )( jQuery );
+}( jQuery ) );
