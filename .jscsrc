@@ -1,0 +1,11 @@
+{
+	"preset": "wikimedia",
+
+	"disallowQuotedKeysInObjects": null,
+	"requireSpacesInsideParentheses": null,
+	"requireSpacesInsideArrayBrackets": null,
+
+	"excludeFiles": [
+		"{coverage,docs,node_modules}/**"
+	]
+}

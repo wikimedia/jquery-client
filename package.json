@@ -1,0 +1,27 @@
+{
+  "name": "jquery-client",
+  "version": "0.1.0",
+  "description": "User-agent detection.",
+  "keywords": [
+    "jquery-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https//github.com/wikimedia/jquery-client"
+  },
+  "scripts": {
+    "test": "jshint . && jscs . && karma start",
+    "doc": "jsduck"
+  },
+  "devDependencies": {
+    "jquery": "1.11.2",
+    "jscs": "1.11.3",
+    "jshint": "2.6.3",
+    "karma": "0.12.31",
+    "karma-cli": "0.0.4",
+    "karma-coverage": "0.2.7",
+    "karma-firefox-launcher": "0.1.4",
+    "karma-qunit": "0.1.4",
+    "qunitjs": "1.17.1"
+  }
+}

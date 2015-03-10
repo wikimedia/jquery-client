@@ -42,7 +42,7 @@
 		 *     }
 		 */
 		profile: function ( nav ) {
-			/*jshint boss: true */
+			/*jshint boss:true */
 
 			if ( nav === undefined ) {
 				nav = window.navigator;
@@ -252,7 +252,7 @@
 		 * @return {boolean} The current browser is in the support map
 		 */
 		test: function ( map, profile, exactMatchOnly ) {
-			/*jshint evil: true */
+			/*jshint evil:true */
 
 			var conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
 			profile = $.isPlainObject( profile ) ? profile : $.client.profile();
