@@ -1,3 +1,12 @@
+/*!
+ * jQuery Client v0.1.0
+ * https://www.mediawiki.org/wiki/JQuery_Client
+ *
+ * Copyright 2010-2015 jquery-client maintainers and other contributors.
+ * Released under the MIT license
+ * http://jquery-client.mit-license.org
+ */
+
 /**
  * User-agent detection
  *
