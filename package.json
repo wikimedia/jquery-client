@@ -1,13 +1,13 @@
 {
   "name": "jquery-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "User-agent detection.",
   "keywords": [
     "jquery-plugin"
   ],
   "repository": {
     "type": "git",
-    "url": "https//github.com/wikimedia/jquery-client"
+    "url": "https://github.com/wikimedia/jquery-client"
   },
   "scripts": {
     "test": "jshint . && jscs . && karma start",
