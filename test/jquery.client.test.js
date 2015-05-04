@@ -80,6 +80,7 @@
 				}
 			},
 			// Internet Explorer 11 - Windows 8.1 x64 desktop UI
+			// same with classic IE browser on Windows 10
 			'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko': {
 				title: 'Internet Explorer 11',
 				platform: 'WOW64',
@@ -97,12 +98,30 @@
 					rtl: true
 				}
 			},
-			// Internet Explorer 12
-			'Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36 Edge/12.0': {
-				title: 'Internet Explorer 12',
-				platform: 'WOW64',
+			// Microsoft Edge - Windows 10 x64 (preview build 10074)
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {
+				title: 'Microsoft Edge 12',
+				platform: 'Win64',
 				profile: {
-					name: 'msie',
+					name: 'edge',
+					layout: 'edge',
+					layoutVersion: 12,
+					platform: 'win',
+					version: '12.0',
+					versionBase: '12',
+					versionNumber: 12
+				},
+				wikiEditor: {
+					ltr: true,
+					rtl: true
+				}
+			},
+			// Microsoft Edge - Windows 10 x86 (preview build 10074)
+			'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {
+				title: 'Microsoft Edge 12',
+				platform: 'Win32',
+				profile: {
+					name: 'edge',
 					layout: 'edge',
 					layoutVersion: 12,
 					platform: 'win',
