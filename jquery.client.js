@@ -1,5 +1,5 @@
 /*!
- * jQuery Client v1.0.0
+ * jQuery Client v2.0.0
  * https://www.mediawiki.org/wiki/JQuery_Client
  *
  * Copyright 2010-2015 jquery-client maintainers and other contributors.
