@@ -244,6 +244,24 @@
 				}
 			},
 			// Firefox 5
+			// Safari 2
+			'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3': {
+				title: 'Safari 2',
+				platform: 'MacPPC',
+				profile: {
+					name: 'safari',
+					layout: 'webkit',
+					layoutVersion: 419,
+					platform: 'mac',
+					version: '2.0',
+					versionBase: '2',
+					versionNumber: 2
+				},
+				wikiEditor: {
+					ltr: false,
+					rtl: false
+				}
+			},
 			// Safari 3
 			// Safari 4
 			'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; nl-nl) AppleWebKit/531.22.7 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7': {
