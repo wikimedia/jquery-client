@@ -254,7 +254,7 @@
 		 *
 		 * @return {boolean} The current browser is in the support map
 		 */
-		test: function ( map, profile, exactMatchOnly ) {
+		isBlacklisted: function ( map, profile, exactMatchOnly ) {
 			/*jshint evil:true */
 
 			var conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
@@ -266,16 +266,16 @@
 			// Check over each browser condition to determine if we are running in a compatible client
 			if ( typeof map !== 'object' || map[profile.name] === undefined ) {
 				// Not found, return true if exactMatchOnly not set, false otherwise
-				return !exactMatchOnly;
+				return exactMatchOnly;
 			}
 			conditions = map[profile.name];
 			if ( conditions === false ) {
 				// Match no versions
-				return false;
+				return true;
 			}
 			if ( conditions === null ) {
 				// Match all versions
-				return true;
+				return false;
 			}
 			for ( i = 0; i < conditions.length; i++ ) {
 				op = conditions[i][0];
@@ -305,16 +305,16 @@
 					}
 					// compare will be -1, 0 or 1, depending on comparison result
 					if ( !( eval( String( compare + op + '0' ) ) ) ) {
-						return false;
+						return true;
 					}
 				} else if ( typeof val === 'number' ) {
 					if ( !( eval( 'profile.versionNumber' + op + val ) ) ) {
-						return false;
+						return true;
 					}
 				}
 			}
 
-			return true;
+			return false;
 		}
 	};
 }( jQuery ) );
