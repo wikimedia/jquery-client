@@ -254,6 +254,71 @@
 		 *
 		 * @return {boolean} The current browser is in the support map
 		 */
+
+		 test: function ( map, profile, exactMatchOnly ) {
+			/*jshint evil:true */
+
+			var conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
+			profile = $.isPlainObject( profile ) ? profile : $.client.profile();
+			if ( map.ltr && map.rtl ) {
+				dir = $( 'body' ).is( '.rtl' ) ? 'rtl' : 'ltr';
+				map = map[dir];
+			}
+			// Check over each browser condition to determine if we are running in a compatible client
+			if ( typeof map !== 'object' || map[profile.name] === undefined ) {
+				// Not found, return true if exactMatchOnly not set, false otherwise
+				return !exactMatchOnly;
+			}
+			conditions = map[profile.name];
+			if ( conditions === false ) {
+				// Match no versions
+				return false;
+			}
+			if ( conditions === null ) {
+				// Match all versions
+				return true;
+			}
+			for ( i = 0; i < conditions.length; i++ ) {
+				op = conditions[i][0];
+				val = conditions[i][1];
+				if ( typeof val === 'string' ) {
+					// Perform a component-wise comparison of versions, similar to PHP's version_compare
+					// but simpler. '1.11' is larger than '1.2'.
+					pieceVersion = profile.version.toString().split( '.' );
+					pieceVal = val.split( '.' );
+					// Extend with zeroes to equal length
+					while ( pieceVersion.length < pieceVal.length ) {
+						pieceVersion.push( '0' );
+					}
+					while ( pieceVal.length < pieceVersion.length ) {
+						pieceVal.push( '0' );
+					}
+					// Compare components
+					compare = 0;
+					for ( j = 0; j < pieceVersion.length; j++ ) {
+						if ( Number( pieceVersion[j] ) < Number( pieceVal[j] ) ) {
+							compare = -1;
+							break;
+						} else if ( Number( pieceVersion[j] ) > Number( pieceVal[j] ) ) {
+							compare = 1;
+							break;
+						}
+					}
+					// compare will be -1, 0 or 1, depending on comparison result
+					if ( !( eval( String( compare + op + '0' ) ) ) ) {
+						return false;
+					}
+				} else if ( typeof val === 'number' ) {
+					if ( !( eval( 'profile.versionNumber' + op + val ) ) ) {
+						return false;
+					}
+				}
+			}
+
+			return true;
+		}
+
+
 		isBlacklisted: function ( map, profile, exactMatchOnly ) {
 			/*jshint evil:true */
 
