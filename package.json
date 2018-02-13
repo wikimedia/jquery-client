@@ -17,11 +17,11 @@
     "jquery": "1.11.2",
     "jscs": "1.11.3",
     "jshint": "2.6.3",
-    "karma": "0.12.31",
-    "karma-cli": "0.0.4",
-    "karma-coverage": "0.2.7",
-    "karma-firefox-launcher": "0.1.4",
-    "karma-qunit": "0.1.4",
-    "qunitjs": "1.17.1"
+    "karma": "1.7.1",
+    "karma-cli": "1.0.1",
+    "karma-coverage": "1.1.1",
+    "karma-firefox-launcher": "1.1.0",
+    "karma-qunit": "1.2.1",
+    "qunitjs": "2.4.1"
   }
 }
