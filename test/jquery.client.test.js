@@ -530,56 +530,56 @@
 		testMap = {
 			// Example from WikiEditor, modified to provide version identifiers as strings and with
 			// Konqueror 4.11 check added.
-			'ltr': {
-				'msie': [['>=', '7.0']],
-				'firefox': [['>=', '2']],
-				'opera': [['>=', '9.6']],
-				'safari': [['>=', '3']],
-				'chrome': [['>=', '3']],
-				'netscape': [['>=', '9']],
-				'konqueror': [['>=', '4.11']],
-				'blackberry': false,
-				'ipod': false,
-				'iphone': false
+			ltr: {
+				msie: [ [ '>=', '7.0' ] ],
+				firefox: [ [ '>=', '2' ] ],
+				opera: [ [ '>=', '9.6' ] ],
+				safari: [ [ '>=', '3' ] ],
+				chrome: [ [ '>=', '3' ] ],
+				netscape: [ [ '>=', '9' ] ],
+				konqueror: [ [ '>=', '4.11' ] ],
+				blackberry: false,
+				ipod: false,
+				iphone: false
 			},
-			'rtl': {
-				'msie': [['>=', '8']],
-				'firefox': [['>=', '2']],
-				'opera': [['>=', '9.6']],
-				'safari': [['>=', '3']],
-				'chrome': [['>=', '3']],
-				'netscape': [['>=', '9']],
-				'konqueror': [['>=', '4.11']],
-				'blackberry': false,
-				'ipod': false,
-				'iphone': false
+			rtl: {
+				msie: [ [ '>=', '8' ] ],
+				firefox: [ [ '>=', '2' ] ],
+				opera: [ [ '>=', '9.6' ] ],
+				safari: [ [ '>=', '3' ] ],
+				chrome: [ [ '>=', '3' ] ],
+				netscape: [ [ '>=', '9' ] ],
+				konqueror: [ [ '>=', '4.11' ] ],
+				blackberry: false,
+				ipod: false,
+				iphone: false
 			}
 		},
 		legacyTestMap = {
 			// Original example from WikiEditor.
 			// This is using the old, but still supported way of providing version identifiers as numbers
 			// instead of strings; with this method, 4.9 would be considered larger than 4.11.
-			'ltr': {
-				'msie': [['>=', 7.0]],
-				'firefox': [['>=', 2]],
-				'opera': [['>=', 9.6]],
-				'safari': [['>=', 3]],
-				'chrome': [['>=', 3]],
-				'netscape': [['>=', 9]],
-				'blackberry': false,
-				'ipod': false,
-				'iphone': false
+			ltr: {
+				msie: [ [ '>=', 7.0 ] ],
+				firefox: [ [ '>=', 2 ] ],
+				opera: [ [ '>=', 9.6 ] ],
+				safari: [ [ '>=', 3 ] ],
+				chrome: [ [ '>=', 3 ] ],
+				netscape: [ [ '>=', 9 ] ],
+				blackberry: false,
+				ipod: false,
+				iphone: false
 			},
-			'rtl': {
-				'msie': [['>=', 8]],
-				'firefox': [['>=', 2]],
-				'opera': [['>=', 9.6]],
-				'safari': [['>=', 3]],
-				'chrome': [['>=', 3]],
-				'netscape': [['>=', 9]],
-				'blackberry': false,
-				'ipod': false,
-				'iphone': false
+			rtl: {
+				msie: [ [ '>=', 8 ] ],
+				firefox: [ [ '>=', 2 ] ],
+				opera: [ [ '>=', 9.6 ] ],
+				safari: [ [ '>=', 3 ] ],
+				chrome: [ [ '>=', 3 ] ],
+				netscape: [ [ '>=', 9 ] ],
+				blackberry: false,
+				ipod: false,
+				iphone: false
 			}
 		};
 
@@ -616,8 +616,8 @@
 		// then do a basic return value type check
 		var testMatch = $.client.test( testMap ),
 			ie7Profile = $.client.profile( {
-				'userAgent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-				'platform': ''
+				userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+				platform: ''
 			} );
 
 		assert.equal( typeof testMatch, 'boolean', 'map with ltr/rtl split returns a boolean value' );
@@ -627,26 +627,26 @@
 		assert.equal( typeof testMatch, 'boolean', 'simple map (without ltr/rtl split) returns a boolean value' );
 
 		assert.equal( $.client.test( {
-			'msie': null
+			msie: null
 		}, ie7Profile ), true, 'returns true if any version of a browser are allowed (null)' );
 
 		assert.equal( $.client.test( {
-			'msie': false
+			msie: false
 		}, ie7Profile ), false, 'returns false if all versions of a browser are not allowed (false)' );
 	} );
 
 	QUnit.test( 'test( testMap, exactMatchOnly )', function ( assert ) {
 		var ie7Profile = $.client.profile( {
-			'userAgent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-			'platform': ''
+			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+			platform: ''
 		} );
 
 		assert.equal( $.client.test( {
-			'firefox': [['>=', 2]]
+			firefox: [ [ '>=', 2 ] ]
 		}, ie7Profile, false ), true, 'returns true if browser not found and exactMatchOnly not set' );
 
 		assert.equal( $.client.test( {
-			'firefox': [['>=', 2]]
+			firefox: [ [ '>=', 2 ] ]
 		}, ie7Profile, true ), false, 'returns false if browser not found and exactMatchOnly is set' );
 	} );
 
@@ -656,7 +656,7 @@
 
 		// Loop through and run tests
 		$.each( uas, function ( agent, data ) {
-			$.each( ['ltr', 'rtl'], function ( i, dir ) {
+			$.each( [ 'ltr', 'rtl' ], function ( i, dir ) {
 				var profile, testMatch, legacyTestMatch;
 				$body.removeClass( 'ltr rtl' ).addClass( dir );
 				profile = $.client.profile( {
@@ -669,12 +669,12 @@
 
 				assert.equal(
 					testMatch,
-					data.wikiEditor[dir],
+					data.wikiEditor[ dir ],
 					'testing comparison based on ' + dir + ', ' + agent
 				);
 				assert.equal(
 					legacyTestMatch,
-					data.wikiEditorLegacy ? data.wikiEditorLegacy[dir] : data.wikiEditor[dir],
+					data.wikiEditorLegacy ? data.wikiEditorLegacy[ dir ] : data.wikiEditor[ dir ],
 					'testing comparison based on ' + dir + ', ' + agent + ' (legacyTestMap)'
 				);
 			} );

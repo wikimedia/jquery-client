@@ -1,0 +1,17 @@
+{
+    "extends": "wikimedia",
+    "parserOptions": {
+        "ecmaVersion": 3
+    },
+    "env": {
+        "browser": true,
+        "jquery": true,
+        "qunit": true
+    },
+    "rules": {
+        "no-cond-assign": 0,
+        "no-return-assign": 0,
+        "valid-jsdoc": 0,
+        "vars-on-top": 0
+    }
+}

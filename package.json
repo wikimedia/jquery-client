@@ -10,13 +10,13 @@
     "url": "https://github.com/wikimedia/jquery-client"
   },
   "scripts": {
-    "test": "jshint . && jscs . && karma start",
+    "test": "eslint . && karma start",
     "doc": "jsduck"
   },
   "devDependencies": {
     "jquery": "1.11.2",
-    "jscs": "1.11.3",
-    "jshint": "2.6.3",
+    "eslint-config-wikimedia": "0.5.0",
+    "eslint": "4.17.0",
     "karma": "1.7.1",
     "karma-cli": "1.0.1",
     "karma-coverage": "1.1.1",

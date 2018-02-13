@@ -1,4 +1,4 @@
-/*jshint node:true */
+/* eslint-env node */
 module.exports = function ( config ) {
 	config.set( {
 		frameworks: [ 'qunit' ],
