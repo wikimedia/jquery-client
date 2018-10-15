@@ -1,6 +1,6 @@
 {
   "name": "jquery-client",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "User-agent detection.",
   "keywords": [
     "jquery-plugin"
@@ -9,6 +9,12 @@
     "type": "git",
     "url": "https://github.com/wikimedia/jquery-client"
   },
+  "files": [
+    "jquery.client.js",
+    "AUTHORS.txt",
+    "README.md",
+    "LICENSE-MIT"
+  ],
   "scripts": {
     "test": "eslint . && karma start",
     "doc": "jsduck"
