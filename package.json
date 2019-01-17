@@ -20,14 +20,13 @@
     "doc": "jsduck"
   },
   "devDependencies": {
-    "jquery": "3.2.1",
+    "jquery": "3.3.1",
     "eslint-config-wikimedia": "0.10.0",
-    "eslint": "5.12.0",
-    "karma": "1.7.1",
-    "karma-cli": "1.0.1",
-    "karma-coverage": "1.1.1",
+    "karma": "3.1.4",
+    "karma-cli": "2.0.0",
+    "karma-coverage": "1.1.2",
     "karma-firefox-launcher": "1.1.0",
-    "karma-qunit": "1.2.1",
-    "qunitjs": "2.4.1"
+    "karma-qunit": "2.1.0",
+    "qunit": "2.9.1"
   }
 }
