@@ -1,8 +1,5 @@
-( function ( $ ) {
-
-	QUnit.module( 'jquery.client' );
-
-	// Object keyed by userAgent. Value is an array (human-readable name, client-profile object, navigator.platform value)
+( function () {
+	// Object keyed by userAgent.
 	var uas = {
 			// Internet Explorer 6
 			// Internet Explorer 7
@@ -557,8 +554,9 @@
 		},
 		legacyTestMap = {
 			// Original example from WikiEditor.
-			// This is using the old, but still supported way of providing version identifiers as numbers
-			// instead of strings; with this method, 4.9 would be considered larger than 4.11.
+			// This is using the old, but still supported way of providing version identifiers
+			// as numbers instead of strings; with this method, 4.9 would be considered larger
+			// than 4.11.
 			ltr: {
 				msie: [ [ '>=', 7.0 ] ],
 				firefox: [ [ '>=', 2 ] ],
@@ -583,6 +581,8 @@
 			}
 		};
 
+	QUnit.module( 'jquery.client' );
+
 	QUnit.test( 'profile( navObject )', function ( assert ) {
 		var p = $.client.profile();
 
@@ -590,29 +590,30 @@
 			assert.ok( typeof val === type || val === 'unknown', summary );
 		}
 
-		assert.equal( typeof p, 'object', 'profile returns an object' );
+		assert.strictEqual( typeof p, 'object', 'profile returns an object' );
 		unknownOrType( p.layout, 'string', 'p.layout is a string (or "unknown")' );
 		unknownOrType( p.layoutVersion, 'number', 'p.layoutVersion is a number (or "unknown")' );
 		unknownOrType( p.platform, 'string', 'p.platform is a string (or "unknown")' );
 		unknownOrType( p.version, 'string', 'p.version is a string (or "unknown")' );
 		unknownOrType( p.versionBase, 'string', 'p.versionBase is a string (or "unknown")' );
-		assert.equal( typeof p.versionNumber, 'number', 'p.versionNumber is a number' );
+		assert.strictEqual( typeof p.versionNumber, 'number', 'p.versionNumber is a number' );
 	} );
 
 	QUnit.test( 'profile( navObject ) - samples', function ( assert ) {
 		// Loop through and run tests
-		$.each( uas, function ( rawUserAgent, data ) {
+		Object.keys( uas ).forEach( function ( rawUserAgent ) {
 			// Generate a client profile object and compare recursively
-			var ret = $.client.profile( {
-				userAgent: rawUserAgent,
-				platform: data.platform
-			} );
+			var data = uas[ rawUserAgent ],
+				ret = $.client.profile( {
+					userAgent: rawUserAgent,
+					platform: data.platform
+				} );
 			assert.deepEqual( ret, data.profile, 'Client profile support check for ' + data.title + ' (' + data.platform + '): ' + rawUserAgent );
 		} );
 	} );
 
 	QUnit.test( 'test( testMap )', function ( assert ) {
-		// .test() uses eval, make sure no exceptions are thrown
+		// `test` uses eval, make sure no exceptions are thrown
 		// then do a basic return value type check
 		var testMatch = $.client.test( testMap ),
 			ie7Profile = $.client.profile( {
@@ -620,17 +621,17 @@
 				platform: ''
 			} );
 
-		assert.equal( typeof testMatch, 'boolean', 'map with ltr/rtl split returns a boolean value' );
+		assert.strictEqual( typeof testMatch, 'boolean', 'map with ltr/rtl split returns a boolean value' );
 
 		testMatch = $.client.test( testMap.ltr );
 
-		assert.equal( typeof testMatch, 'boolean', 'simple map (without ltr/rtl split) returns a boolean value' );
+		assert.strictEqual( typeof testMatch, 'boolean', 'simple map (without ltr/rtl split) returns a boolean value' );
 
-		assert.equal( $.client.test( {
+		assert.strictEqual( $.client.test( {
 			msie: null
 		}, ie7Profile ), true, 'returns true if any version of a browser are allowed (null)' );
 
-		assert.equal( $.client.test( {
+		assert.strictEqual( $.client.test( {
 			msie: false
 		}, ie7Profile ), false, 'returns false if all versions of a browser are not allowed (false)' );
 	} );
@@ -641,41 +642,42 @@
 			platform: ''
 		} );
 
-		assert.equal( $.client.test( {
+		assert.strictEqual( $.client.test( {
 			firefox: [ [ '>=', 2 ] ]
 		}, ie7Profile, false ), true, 'returns true if browser not found and exactMatchOnly not set' );
 
-		assert.equal( $.client.test( {
+		assert.strictEqual( $.client.test( {
 			firefox: [ [ '>=', 2 ] ]
 		}, ie7Profile, true ), false, 'returns false if browser not found and exactMatchOnly is set' );
 	} );
 
 	QUnit.test( 'test( testMap ), test( legacyTestMap ) - WikiEditor sample', function ( assert ) {
-		var $body = $( 'body' ),
+		var $body = $( document.body ),
 			bodyClasses = $body.attr( 'class' );
 
 		// Loop through and run tests
-		$.each( uas, function ( agent, data ) {
-			$.each( [ 'ltr', 'rtl' ], function ( i, dir ) {
+		Object.keys( uas ).forEach( function ( rawUserAgent ) {
+			var data = uas[ rawUserAgent ];
+			[ 'ltr', 'rtl' ].forEach( function ( dir ) {
 				var profile, testMatch, legacyTestMatch;
 				$body.removeClass( 'ltr rtl' ).addClass( dir );
 				profile = $.client.profile( {
-					userAgent: agent,
+					userAgent: rawUserAgent,
 					platform: data.platform
 				} );
 				testMatch = $.client.test( testMap, profile );
 				legacyTestMatch = $.client.test( legacyTestMap, profile );
 				$body.removeClass( dir );
 
-				assert.equal(
+				assert.strictEqual(
 					testMatch,
 					data.wikiEditor[ dir ],
-					'testing comparison based on ' + dir + ', ' + agent
+					'testing comparison based on ' + dir + ', ' + rawUserAgent
 				);
-				assert.equal(
+				assert.strictEqual(
 					legacyTestMatch,
 					data.wikiEditorLegacy ? data.wikiEditorLegacy[ dir ] : data.wikiEditor[ dir ],
-					'testing comparison based on ' + dir + ', ' + agent + ' (legacyTestMap)'
+					'testing comparison based on ' + dir + ', ' + rawUserAgent + ' (legacyTestMap)'
 				);
 			} );
 		} );
@@ -683,4 +685,4 @@
 		// Restore body classes
 		$body.attr( 'class', bodyClasses );
 	} );
-}( jQuery ) );
+}() );
