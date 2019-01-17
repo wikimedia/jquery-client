@@ -15,7 +15,7 @@ module.exports = function ( config ) {
 			{ type: 'html', dir: 'coverage/' },
 			{ type: 'text-summary', dir: 'coverage/' }
 		] },
-		browsers: [ 'Firefox' ],
+		browsers: [ 'FirefoxHeadless' ],
 		singleRun: true,
 		autoWatch: false
 	} );
