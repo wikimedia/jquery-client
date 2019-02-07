@@ -255,8 +255,6 @@
 		 * @return {boolean} The current browser is in the support map
 		 */
 		test: function ( map, profile, exactMatchOnly ) {
-			/* eslint-disable no-eval */
-
 			var conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
 			profile = $.isPlainObject( profile ) ? profile : $.client.profile();
 			if ( map.ltr && map.rtl ) {
@@ -305,10 +303,12 @@
 						}
 					}
 					// compare will be -1, 0 or 1, depending on comparison result
+					// eslint-disable-next-line no-eval
 					if ( !( eval( String( compare + op + '0' ) ) ) ) {
 						return false;
 					}
 				} else if ( typeof val === 'number' ) {
+					// eslint-disable-next-line no-eval
 					if ( !( eval( 'profile.versionNumber' + op + val ) ) ) {
 						return false;
 					}
