@@ -134,6 +134,11 @@
 			// Everything will be in lowercase from now on
 			ua = ua.toLowerCase();
 
+			// Firefox Mobile: Remove 'Android' identifier so it matches to 'Firefox' instead
+			if ( ua.match( /android/ ) && ua.match( /firefox/ ) ) {
+				ua = ua.replace( new RegExp( 'android' + versionSuffix ), '' );
+			}
+
 			// Extraction
 
 			if ( ( match = new RegExp( '(' + names.join( '|' ) + ')' ).exec( ua ) ) ) {
