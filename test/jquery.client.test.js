@@ -523,7 +523,25 @@
 					rtl: true
 				}
 			},
-			// Firefox mobile
+			// Firefox mobile 13
+			'Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0': {
+				title: 'Firefox mobile 13',
+				platform: 'Mobile',
+				profile: {
+					name: 'firefox',
+					layout: 'gecko',
+					layoutVersion: 13,
+					platform: 'unknown',
+					version: '13.0',
+					versionBase: '13',
+					versionNumber: 13
+				},
+				wikiEditor: {
+					ltr: true,
+					rtl: true
+				}
+			},
+			// Firefox mobile 65
 			'Mozilla/5.0 (Android 8.0.0; Mobile; rv:65.0) Gecko/65.0 Firefox/65.0': {
 				title: 'Firefox mobile 65',
 				platform: 'Mobile',
