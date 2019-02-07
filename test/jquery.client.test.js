@@ -522,6 +522,24 @@
 					ltr: true,
 					rtl: true
 				}
+			},
+			// Firefox mobile
+			'Mozilla/5.0 (Android 8.0.0; Mobile; rv:65.0) Gecko/65.0 Firefox/65.0': {
+				title: 'Firefox mobile 65',
+				platform: 'Mobile',
+				profile: {
+					name: 'firefox',
+					layout: 'gecko',
+					layoutVersion: 65,
+					platform: 'unknown',
+					version: '65.0',
+					versionBase: '65',
+					versionNumber: 65
+				},
+				wikiEditor: {
+					ltr: true,
+					rtl: true
+				}
 			}
 		},
 		testMap = {
