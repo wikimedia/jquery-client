@@ -17,12 +17,13 @@
     "LICENSE-MIT"
   ],
   "scripts": {
-    "test": "eslint . && karma start",
+    "lint": "eslint --cache --max-warnings 0 --report-unused-disable-directives .",
+    "test": "npm run lint . && karma start",
     "doc": "jsduck"
   },
   "devDependencies": {
     "jquery": "3.3.1",
-    "eslint-config-wikimedia": "0.10.0",
+    "eslint-config-wikimedia": "0.10.1",
     "karma": "3.1.4",
     "karma-cli": "2.0.0",
     "karma-coverage": "1.1.2",
