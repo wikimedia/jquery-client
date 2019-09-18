@@ -64,7 +64,7 @@
 				x = 'x',
 				// Words found in user agent strings that may need to be purified
 				// before we do any other pattern matching.
-				rWildWords = /(Opera|Navigator|Minefield|KHTML|Chrome|PLAYSTATION 3|Iceweasel)/,
+				rWildWords = /(Opera|Navigator|Minefield|KHTML|Chrome|PLAYSTATION 3|Iceweasel|Android|Firefox)/,
 				// Fixups for user agent strings that contain wild words
 				wildFixups = [
 					// Tons of browsers lie about being something they are not
@@ -77,6 +77,9 @@
 					[ 'Minefield', 'Firefox' ],
 					// For Iceweasel, strip out "Firefox"
 					[ /Firefox(.+Iceweasel)/, '$1' ],
+					// For Firefox Mobile, strip out "Android;" or "Android [version]" so that we
+					// classify it as Firefox instead of Android (default browser)
+					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ],
 					// This helps keep different versions consistent
 					[ 'Navigator', 'Netscape' ],
 					// This prevents version extraction issues, otherwise mapping would happen later
@@ -120,11 +123,6 @@
 			}
 			// Everything will be in lowercase from now on
 			ua = ua.toLowerCase();
-
-			// Firefox Mobile: Remove 'Android' identifier so it matches to 'Firefox' instead
-			if ( ua.match( /android/ ) && ua.match( /firefox/ ) ) {
-				ua = ua.replace( new RegExp( 'android' + versionSuffix ), '' );
-			}
 
 			// Extraction
 
