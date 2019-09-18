@@ -94,8 +94,6 @@
 					'camino', 'chrome', 'firefox', 'iceweasel', 'netscape', 'konqueror', 'lynx', 'msie', 'opera',
 					'safari', 'ipod', 'iphone', 'blackberry', 'ps3', 'rekonq', 'android'
 				],
-				// Tanslations for conforming browser names
-				nameTranslations = [],
 				// Names of known layout engines
 				layouts = [ 'gecko', 'konqueror', 'msie', 'trident', 'edge', 'opera', 'webkit' ],
 				// Translations for conforming layout names
@@ -142,7 +140,7 @@
 			// Extraction
 
 			if ( ( match = new RegExp( '(' + names.join( '|' ) + ')' ).exec( ua ) ) ) {
-				name = translate( match[ 1 ], nameTranslations );
+				name = match[ 1 ];
 			}
 			if ( ( match = new RegExp( '(' + layouts.join( '|' ) + ')' ).exec( ua ) ) ) {
 				layout = translate( match[ 1 ], layoutTranslations );
