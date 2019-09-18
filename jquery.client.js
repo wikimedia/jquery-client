@@ -99,15 +99,6 @@
 				// Translations for conforming operating system names
 				platformMap = { sunos: 'solaris', wow64: 'win' },
 
-				// Performs multiple replacements on a string
-				translate = function ( source, translations ) {
-					var i;
-					for ( i = 0; i < translations.length; i++ ) {
-						source = source.replace( translations[ i ][ 0 ], translations[ i ][ 1 ] );
-					}
-					return source;
-				},
-
 				// Pre-processing
 
 				ua = nav.userAgent,
@@ -119,9 +110,11 @@
 				version = x;
 
 			if ( ( match = rWildWords.exec( ua ) ) ) {
-				// Takes a userAgent string and translates given text into something we can more
+				// Takes a userAgent string and fixes it into something we can more
 				// easily work with
-				ua = translate( ua, wildFixups );
+				wildFixups.forEach( function ( fixup ) {
+					ua = ua.replace( fixup[ 0 ], fixup[ 1 ] );
+				} );
 			}
 			// Everything will be in lowercase from now on
 			ua = ua.toLowerCase();
