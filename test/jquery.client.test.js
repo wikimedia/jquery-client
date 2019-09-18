@@ -186,6 +186,24 @@
 					rtl: true
 				}
 			},
+			// Firefox 4 nightly build (aka Minefield)
+			'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100815 Minefield/4.0b4pre': {
+				title: 'Firefox 4 nightly',
+				platform: 'Linux',
+				profile: {
+					name: 'firefox',
+					layout: 'gecko',
+					layoutVersion: 20100815,
+					platform: 'linux',
+					version: '4.0b4pre',
+					versionBase: '4',
+					versionNumber: 4
+				},
+				wikiEditor: {
+					ltr: true,
+					rtl: true
+				}
+			},
 			// Firefox 10 nightly build
 			'Mozilla/5.0 (X11; Linux x86_64; rv:10.0a1) Gecko/20111103 Firefox/10.0a1': {
 				title: 'Firefox 10 nightly',
