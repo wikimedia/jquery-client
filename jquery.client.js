@@ -68,13 +68,15 @@
 				// Fixups for user agent strings that contain wild words
 				wildFixups = [
 					// Tons of browsers lie about being something they are not
-					[ /(Firefox|MSIE|KHTML,?\slike\sGecko|Konqueror)/, '' ],
+					[ /(MSIE|KHTML,?\slike\sGecko|Konqueror)/, '' ],
 					// Chrome lives in the shadow of Safari still
 					[ 'Chrome Safari', 'Chrome' ],
 					// KHTML is the layout engine not the browser - LIES!
 					[ 'KHTML', 'Konqueror' ],
 					// Firefox nightly builds
 					[ 'Minefield', 'Firefox' ],
+					// For Iceweasel, strip out "Firefox"
+					[ /Firefox(.+Iceweasel)/, '$1' ],
 					// This helps keep different versions consistent
 					[ 'Navigator', 'Netscape' ],
 					// This prevents version extraction issues, otherwise mapping would happen later
