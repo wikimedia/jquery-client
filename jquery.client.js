@@ -97,13 +97,13 @@
 				// Names of known layout engines
 				layouts = [ 'gecko', 'konqueror', 'msie', 'trident', 'edge', 'opera', 'webkit' ],
 				// Translations for conforming layout names
-				layoutTranslations = [ [ 'konqueror', 'khtml' ], [ 'msie', 'trident' ], [ 'opera', 'presto' ] ],
+				layoutMap = { konqueror: 'khtml', msie: 'trident', opera: 'presto' },
 				// Names of supported layout engines for version number
 				layoutVersions = [ 'applewebkit', 'gecko', 'trident', 'edge' ],
 				// Names of known operating systems
 				platforms = [ 'win', 'wow64', 'mac', 'linux', 'sunos', 'solaris', 'iphone' ],
 				// Translations for conforming operating system names
-				platformTranslations = [ [ 'sunos', 'solaris' ], [ 'wow64', 'win' ] ],
+				platformMap = { sunos: 'solaris', wow64: 'win' },
 
 				// Performs multiple replacements on a string
 				translate = function ( source, translations ) {
@@ -143,13 +143,13 @@
 				name = match[ 1 ];
 			}
 			if ( ( match = new RegExp( '(' + layouts.join( '|' ) + ')' ).exec( ua ) ) ) {
-				layout = translate( match[ 1 ], layoutTranslations );
+				layout = layoutMap[ match[ 1 ] ] || match[ 1 ];
 			}
 			if ( ( match = new RegExp( '(' + layoutVersions.join( '|' ) + ')\\/(\\d+)' ).exec( ua ) ) ) {
 				layoutversion = parseInt( match[ 2 ], 10 );
 			}
 			if ( ( match = new RegExp( '(' + platforms.join( '|' ) + ')' ).exec( nav.platform.toLowerCase() ) ) ) {
-				platform = translate( match[ 1 ], platformTranslations );
+				platform = platformMap[ match[ 1 ] ] || match[ 1 ];
 			}
 			if ( ( match = new RegExp( '(' + versionPrefixes.join( '|' ) + ')' + versionSuffix ).exec( ua ) ) ) {
 				version = match[ 3 ];
