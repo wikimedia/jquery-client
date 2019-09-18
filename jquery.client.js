@@ -42,12 +42,12 @@
 		 *     }
 		 */
 		profile: function ( nav ) {
-			if ( nav === undefined ) {
+			if ( !nav ) {
 				nav = window.navigator;
 			}
 
 			// Use the cached version if possible
-			if ( profileCache[ nav.userAgent + '|' + nav.platform ] !== undefined ) {
+			if ( profileCache[ nav.userAgent + '|' + nav.platform ] ) {
 				return profileCache[ nav.userAgent + '|' + nav.platform ];
 			}
 
@@ -62,10 +62,11 @@
 				uk = 'unknown',
 				// Generic version digit
 				x = 'x',
-				// Strings found in user agent strings that need to be conformed
-				wildUserAgents = [ 'Opera', 'Navigator', 'Minefield', 'KHTML', 'Chrome', 'PLAYSTATION 3', 'Iceweasel' ],
-				// Translations for conforming user agent strings
-				userAgentTranslations = [
+				// Words found in user agent strings that may need to be purified
+				// before we do any other pattern matching.
+				rWildWords = /(Opera|Navigator|Minefield|KHTML|Chrome|PLAYSTATION 3|Iceweasel)/,
+				// Fixups for user agent strings that contain wild words
+				wildFixups = [
 					// Tons of browsers lie about being something they are not
 					[ /(Firefox|MSIE|KHTML,?\slike\sGecko|Konqueror)/, '' ],
 					// Chrome lives in the shadow of Safari still
@@ -76,32 +77,25 @@
 					[ 'Minefield', 'Firefox' ],
 					// This helps keep different versions consistent
 					[ 'Navigator', 'Netscape' ],
-					// This prevents version extraction issues,
-					// otherwise translation would happen later
+					// This prevents version extraction issues, otherwise mapping would happen later
 					[ 'PLAYSTATION 3', 'PS3' ]
 				],
 				// Strings which precede a version number in a user agent string - combined and
 				// used as match 1 in version detection
-				versionPrefixes = [
-					'camino', 'chrome', 'firefox', 'iceweasel', 'netscape', 'netscape6', 'opera', 'version', 'konqueror',
-					'lynx', 'msie', 'safari', 'ps3', 'android'
-				],
+				versionPrefixes = '(camino|chrome|firefox|iceweasel|netscape|netscape6|opera|version|konqueror|lynx|msie|safari|ps3|android)',
 				// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual
 				// version number
 				versionSuffix = '(\\/|\\;?\\s|)([a-z0-9\\.\\+]*?)(\\;|dev|rel|\\)|\\s|$)',
-				// Names of known browsers
-				names = [
-					'camino', 'chrome', 'firefox', 'iceweasel', 'netscape', 'konqueror', 'lynx', 'msie', 'opera',
-					'safari', 'ipod', 'iphone', 'blackberry', 'ps3', 'rekonq', 'android'
-				],
-				// Names of known layout engines
-				layouts = [ 'gecko', 'konqueror', 'msie', 'trident', 'edge', 'opera', 'webkit' ],
+				// Match the names of known browser families
+				rName = /(camino|chrome|firefox|iceweasel|netscape|konqueror|lynx|msie|opera|safari|ipod|iphone|blackberry|ps3|rekonq|android)/,
+				// Match the name of known layout engines
+				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names
 				layoutMap = { konqueror: 'khtml', msie: 'trident', opera: 'presto' },
-				// Names of supported layout engines for version number
-				layoutVersions = [ 'applewebkit', 'gecko', 'trident', 'edge' ],
-				// Names of known operating systems
-				platforms = [ 'win', 'wow64', 'mac', 'linux', 'sunos', 'solaris', 'iphone' ],
+				// Match the prefix and version of supported layout engines
+				rLayoutVersion = /(applewebkit|gecko|trident|edge)\/(\d+)/,
+				// Match the name of known operating systems
+				rPlatform = /(win|wow64|mac|linux|sunos|solaris|iphone)/,
 				// Translations for conforming operating system names
 				platformMap = { sunos: 'solaris', wow64: 'win' },
 
@@ -124,10 +118,10 @@
 				platform = uk,
 				version = x;
 
-			if ( ( match = new RegExp( '(' + wildUserAgents.join( '|' ) + ')' ).exec( ua ) ) ) {
+			if ( ( match = rWildWords.exec( ua ) ) ) {
 				// Takes a userAgent string and translates given text into something we can more
 				// easily work with
-				ua = translate( ua, userAgentTranslations );
+				ua = translate( ua, wildFixups );
 			}
 			// Everything will be in lowercase from now on
 			ua = ua.toLowerCase();
@@ -139,19 +133,19 @@
 
 			// Extraction
 
-			if ( ( match = new RegExp( '(' + names.join( '|' ) + ')' ).exec( ua ) ) ) {
+			if ( ( match = rName.exec( ua ) ) ) {
 				name = match[ 1 ];
 			}
-			if ( ( match = new RegExp( '(' + layouts.join( '|' ) + ')' ).exec( ua ) ) ) {
+			if ( ( match = rLayout.exec( ua ) ) ) {
 				layout = layoutMap[ match[ 1 ] ] || match[ 1 ];
 			}
-			if ( ( match = new RegExp( '(' + layoutVersions.join( '|' ) + ')\\/(\\d+)' ).exec( ua ) ) ) {
+			if ( ( match = rLayoutVersion.exec( ua ) ) ) {
 				layoutversion = parseInt( match[ 2 ], 10 );
 			}
-			if ( ( match = new RegExp( '(' + platforms.join( '|' ) + ')' ).exec( nav.platform.toLowerCase() ) ) ) {
+			if ( ( match = rPlatform.exec( nav.platform.toLowerCase() ) ) ) {
 				platform = platformMap[ match[ 1 ] ] || match[ 1 ];
 			}
-			if ( ( match = new RegExp( '(' + versionPrefixes.join( '|' ) + ')' + versionSuffix ).exec( ua ) ) ) {
+			if ( ( match = new RegExp( versionPrefixes + versionSuffix ).exec( ua ) ) ) {
 				version = match[ 3 ];
 			}
 
