@@ -482,9 +482,9 @@
 					rtl: true
 				}
 			},
-			// Konqueror
+			// Konqueror 4.9
 			'Mozilla/5.0 (X11; Linux i686) KHTML/4.9.1 (like Gecko) Konqueror/4.9': {
-				title: 'Konqueror',
+				title: 'Konqueror 4.9',
 				platform: 'Linux i686',
 				profile: {
 					name: 'konqueror',
@@ -502,6 +502,42 @@
 				},
 				wikiEditorLegacy: {
 					// The check is missing in legacyTestMap
+					ltr: true,
+					rtl: true
+				}
+			},
+			// Konqueror 18.12.0 on Debian 10 Buster
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.11.3 Chrome/65.0.3325.230 Safari/537.36 Konqueror (WebEnginePart)': {
+				title: 'Konqueror 18.12.0',
+				platform: 'Linux x86_64',
+				profile: {
+					name: 'chrome',
+					layout: 'webkit',
+					layoutVersion: 537,
+					platform: 'linux',
+					version: '65.0.3325.230',
+					versionBase: '65',
+					versionNumber: 65
+				},
+				wikiEditor: {
+					ltr: true,
+					rtl: true
+				}
+			},
+			// Konqueror 18.12.0 on Debian 10 Buster (in legacy KHTML mode)
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) konqueror/5.0.97 Safari/534.34': {
+				title: '',
+				platform: 'linux x86_64',
+				profile: {
+					name: 'konqueror',
+					layout: 'webkit',
+					layoutVersion: 534,
+					platform: 'linux',
+					version: '5.0.97',
+					versionBase: '5',
+					versionNumber: 5
+				},
+				wikiEditor: {
 					ltr: true,
 					rtl: true
 				}
