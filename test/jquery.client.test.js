@@ -2,9 +2,8 @@
 	// Object keyed by userAgent.
 	var uas = {
 		// Internet Explorer 6
-		// Internet Explorer 7
-		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)': {
-			title: 'Internet Explorer 7',
+		'Internet Explorer 7': {
+			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
 			platform: 'Win32',
 			profile: {
 				name: 'msie',
@@ -18,9 +17,8 @@
 		},
 		// Internet Explorer 8
 		// Internet Explorer 9
-		// Internet Explorer 10
-		'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)': {
-			title: 'Internet Explorer 10',
+		'Internet Explorer 10': {
+			userAgent: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
 			platform: 'Win32',
 			profile: {
 				name: 'msie',
@@ -32,9 +30,8 @@
 				versionNumber: 10
 			}
 		},
-		// Internet Explorer 11
-		'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko': {
-			title: 'Internet Explorer 11',
+		'Internet Explorer 11': {
+			userAgent: 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko',
 			platform: 'Win32',
 			profile: {
 				name: 'msie',
@@ -46,9 +43,8 @@
 				versionNumber: 11
 			}
 		},
-		// Internet Explorer 11 - Windows 8.1 x64 Modern UI
-		'Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko': {
-			title: 'Internet Explorer 11',
+		'Internet Explorer 11 on Win 8.1 (Modern UI)': {
+			userAgent: 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko',
 			platform: 'Win64',
 			profile: {
 				name: 'msie',
@@ -60,10 +56,8 @@
 				versionNumber: 11
 			}
 		},
-		// Internet Explorer 11 - Windows 8.1 x64 desktop UI
-		// same with classic IE browser on Windows 10
-		'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko': {
-			title: 'Internet Explorer 11',
+		'Internet Explorer 11 on Win 8.1 (Classic UI)': {
+			userAgent: 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko',
 			platform: 'WOW64',
 			profile: {
 				name: 'msie',
@@ -75,9 +69,8 @@
 				versionNumber: 11
 			}
 		},
-		// Microsoft Edge - Windows 10 x64 (preview build 10074)
-		'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {
-			title: 'Microsoft Edge 12',
+		'Microsoft Edge 12 on Win 10 x64': {
+			userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0',
 			platform: 'Win64',
 			profile: {
 				name: 'edge',
@@ -89,9 +82,8 @@
 				versionNumber: 12
 			}
 		},
-		// Microsoft Edge - Windows 10 x86 (preview build 10074)
-		'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {
-			title: 'Microsoft Edge 12',
+		'Microsoft Edge 12 on Win 10 x86': {
+			userAgent: 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0',
 			platform: 'Win32',
 			profile: {
 				name: 'edge',
@@ -104,9 +96,8 @@
 			}
 		},
 		// Firefox 2
-		// Firefox 3.5
-		'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1.19) Gecko/20110420 Firefox/3.5.19': {
-			title: 'Firefox 3.5',
+		'Firefox 3.5': {
+			userAgent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1.19) Gecko/20110420 Firefox/3.5.19',
 			platform: 'MacIntel',
 			profile: {
 				name: 'firefox',
@@ -118,9 +109,8 @@
 				versionNumber: 3.5
 			}
 		},
-		// Firefox 3.6
-		'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.17) Gecko/20110422 Ubuntu/10.10 (maverick) Firefox/3.6.17': {
-			title: 'Firefox 3.6',
+		'Firefox 3.6': {
+			userAgent: 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.17) Gecko/20110422 Ubuntu/10.10 (maverick) Firefox/3.6.17',
 			platform: 'Linux i686',
 			profile: {
 				name: 'firefox',
@@ -132,9 +122,8 @@
 				versionNumber: 3.6
 			}
 		},
-		// Firefox 4
-		'Mozilla/5.0 (Windows NT 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1': {
-			title: 'Firefox 4',
+		'Firefox 4': {
+			userAgent: 'Mozilla/5.0 (Windows NT 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1',
 			platform: 'Win32',
 			profile: {
 				name: 'firefox',
@@ -146,9 +135,8 @@
 				versionNumber: 4
 			}
 		},
-		// Firefox 4 nightly build (aka Minefield)
-		'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100815 Minefield/4.0b4pre': {
-			title: 'Firefox 4 nightly',
+		'Firefox 4 nightly': {
+			userAgent: 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100815 Minefield/4.0b4pre',
 			platform: 'Linux',
 			profile: {
 				name: 'firefox',
@@ -160,9 +148,8 @@
 				versionNumber: 4
 			}
 		},
-		// Firefox 10 nightly build
-		'Mozilla/5.0 (X11; Linux x86_64; rv:10.0a1) Gecko/20111103 Firefox/10.0a1': {
-			title: 'Firefox 10 nightly',
+		'Firefox 10 nightly': {
+			userAgent: 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0a1) Gecko/20111103 Firefox/10.0a1',
 			platform: 'Linux',
 			profile: {
 				name: 'firefox',
@@ -174,9 +161,8 @@
 				versionNumber: 10
 			}
 		},
-		// Iceweasel 10.0.6
-		'Mozilla/5.0 (X11; Linux i686; rv:10.0.6) Gecko/20100101 Iceweasel/10.0.6': {
-			title: 'Iceweasel 10.0.6',
+		'Iceweasel 10.0.6': {
+			userAgent: 'Mozilla/5.0 (X11; Linux i686; rv:10.0.6) Gecko/20100101 Iceweasel/10.0.6',
 			platform: 'Linux',
 			profile: {
 				name: 'iceweasel',
@@ -188,9 +174,8 @@
 				versionNumber: 10
 			}
 		},
-		// Iceweasel 15.0.1
-		'Mozilla/5.0 (X11; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1 Iceweasel/15.0.1': {
-			title: 'Iceweasel 15.0.1',
+		'Iceweasel 15.0.1': {
+			userAgent: 'Mozilla/5.0 (X11; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1 Iceweasel/15.0.1',
 			platform: 'Linux',
 			profile: {
 				name: 'iceweasel',
@@ -202,10 +187,8 @@
 				versionNumber: 15
 			}
 		},
-		// Firefox 5
-		// Safari 2
-		'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3': {
-			title: 'Safari 2',
+		'Safari 2': {
+			userAgent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3',
 			platform: 'MacPPC',
 			profile: {
 				name: 'safari',
@@ -218,9 +201,8 @@
 			}
 		},
 		// Safari 3
-		// Safari 4
-		'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; nl-nl) AppleWebKit/531.22.7 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7': {
-			title: 'Safari 4',
+		'Safari 4 on macOS': {
+			userAgent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; nl-nl) AppleWebKit/531.22.7 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7',
 			platform: 'MacIntel',
 			profile: {
 				name: 'safari',
@@ -232,8 +214,8 @@
 				versionNumber: 4
 			}
 		},
-		'Mozilla/5.0 (Windows; U; Windows NT 6.0; cs-CZ) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7': {
-			title: 'Safari 4',
+		'Safari 4 on Windows': {
+			userAgent: 'Mozilla/5.0 (Windows; U; Windows NT 6.0; cs-CZ) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7',
 			platform: 'Win32',
 			profile: {
 				name: 'safari',
@@ -245,10 +227,8 @@
 				versionNumber: 4
 			}
 		},
-		// Safari 5
-		// Safari 6
-		'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.29.13 (KHTML, like Gecko) Version/6.0.4 Safari/536.29.13': {
-			title: 'Safari 6',
+		'Safari 6.0.4': {
+			userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.29.13 (KHTML, like Gecko) Version/6.0.4 Safari/536.29.13',
 			platform: 'MacIntel',
 			profile: {
 				name: 'safari',
@@ -260,9 +240,9 @@
 				versionNumber: 6
 			}
 		},
-		// Safari 6.0.5+ (doesn't have the comma in "KHTML, like Gecko")
-		'Mozilla/5.0 (Macintosh; Intel Mac OS X 1084) AppleWebKit/536.30.1 (KHTML like Gecko) Version/6.0.5 Safari/536.30.1': {
-			title: 'Safari 6',
+		// Safari 6.0.5+ (Note: No longer has a comma in "KHTML, like Gecko")
+		'Safari 6.0.5': {
+			userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 1084) AppleWebKit/536.30.1 (KHTML like Gecko) Version/6.0.5 Safari/536.30.1',
 			platform: 'MacIntel',
 			profile: {
 				name: 'safari',
@@ -274,9 +254,8 @@
 				versionNumber: 6
 			}
 		},
-		// Opera 10+
-		'Opera/9.80 (Windows NT 5.1)': {
-			title: 'Opera 10+ (exact version unspecified)',
+		'Opera 10+ (exact version unspecified)': {
+			userAgent: 'Opera/9.80 (Windows NT 5.1)',
 			platform: 'Win32',
 			profile: {
 				name: 'opera',
@@ -288,9 +267,8 @@
 				versionNumber: 10
 			}
 		},
-		// Opera 12
-		'Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Version/12.11': {
-			title: 'Opera 12',
+		'Opera 12': {
+			userAgent: 'Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Version/12.11',
 			platform: 'Win32',
 			profile: {
 				name: 'opera',
@@ -302,9 +280,9 @@
 				versionNumber: 12.11
 			}
 		},
-		// Opera 15 (WebKit-based)
-		'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.130': {
-			title: 'Opera 15',
+		// Opera 15 (now WebKit-based)
+		'Opera 15': {
+			userAgent: 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.130',
 			platform: 'Win32',
 			profile: {
 				name: 'opera',
@@ -323,9 +301,8 @@
 		// Chrome 9
 		// Chrome 10
 		// Chrome 11
-		// Chrome 12
-		'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_5_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30': {
-			title: 'Chrome 12',
+		'Chrome 12 on macOS': {
+			userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_5_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30',
 			platform: 'MacIntel',
 			profile: {
 				name: 'chrome',
@@ -337,8 +314,8 @@
 				versionNumber: 12
 			}
 		},
-		'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.68 Safari/534.30': {
-			title: 'Chrome 12',
+		'Chrome 12 on Linux': {
+			userAgent: 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.68 Safari/534.30',
 			platform: 'Linux i686',
 			profile: {
 				name: 'chrome',
@@ -350,9 +327,8 @@
 				versionNumber: 12
 			}
 		},
-		// Android WebKit Browser 2.3
-		'Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; HTC Vision Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1': {
-			title: 'Android WebKit Browser 2.3',
+		'Android WebKit Browser 2.3': {
+			userAgent: 'Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; HTC Vision Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
 			platform: 'Linux armv7l',
 			profile: {
 				name: 'android',
@@ -364,9 +340,9 @@
 				versionNumber: 2.3
 			}
 		},
-		// Rekonq (bug 34924)
-		'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.34 (KHTML, like Gecko) rekonq Safari/534.34': {
-			title: 'Rekonq',
+		'Rekonq 0.8.1': {
+			// https://phabricator.wikimedia.org/T36924
+			userAgent: 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.34 (KHTML, like Gecko) rekonq Safari/534.34',
 			platform: 'Linux i686',
 			profile: {
 				name: 'rekonq',
@@ -378,9 +354,8 @@
 				versionNumber: 534.34
 			}
 		},
-		// Konqueror 4.9
-		'Mozilla/5.0 (X11; Linux i686) KHTML/4.9.1 (like Gecko) Konqueror/4.9': {
-			title: 'Konqueror 4.9',
+		'Konqueror 4.9': {
+			userAgent: 'Mozilla/5.0 (X11; Linux i686) KHTML/4.9.1 (like Gecko) Konqueror/4.9',
 			platform: 'Linux i686',
 			profile: {
 				name: 'konqueror',
@@ -392,9 +367,8 @@
 				versionNumber: 4.9
 			}
 		},
-		// Konqueror 18.12.0 on Debian 10 Buster
-		'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.11.3 Chrome/65.0.3325.230 Safari/537.36 Konqueror (WebEnginePart)': {
-			title: 'Konqueror 18.12.0',
+		'Konqueror 18.12.0': {
+			userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.11.3 Chrome/65.0.3325.230 Safari/537.36 Konqueror (WebEnginePart)',
 			platform: 'Linux x86_64',
 			profile: {
 				name: 'chrome',
@@ -406,9 +380,8 @@
 				versionNumber: 65
 			}
 		},
-		// Konqueror 18.12.0 on Debian 10 Buster (in legacy KHTML mode)
-		'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) konqueror/5.0.97 Safari/534.34': {
-			title: '',
+		'Konqueror 18.12.0 (KHTML Legacy Mode)': {
+			userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) konqueror/5.0.97 Safari/534.34',
 			platform: 'linux x86_64',
 			profile: {
 				name: 'konqueror',
@@ -420,9 +393,8 @@
 				versionNumber: 5
 			}
 		},
-		// Amazon Silk
-		'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true': {
-			title: 'Silk',
+		'Amazon Silk 1': {
+			userAgent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true',
 			platform: 'Desktop',
 			profile: {
 				name: 'silk',
@@ -434,8 +406,8 @@
 				versionNumber: 1
 			}
 		},
-		'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.1 Mobile Safari/535.19 Silk-Accelerated=true': {
-			title: 'Silk',
+		'Amazon Silk 2': {
+			userAgent: 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.1 Mobile Safari/535.19 Silk-Accelerated=true',
 			platform: 'Mobile',
 			profile: {
 				name: 'silk',
@@ -447,9 +419,8 @@
 				versionNumber: 2.1
 			}
 		},
-		// Firefox mobile 13
-		'Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0': {
-			title: 'Firefox mobile 13',
+		'Firefox mobile 13': {
+			userAgent: 'Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0',
 			platform: 'Mobile',
 			profile: {
 				name: 'firefox',
@@ -461,9 +432,8 @@
 				versionNumber: 13
 			}
 		},
-		// Firefox mobile 65
-		'Mozilla/5.0 (Android 8.0.0; Mobile; rv:65.0) Gecko/65.0 Firefox/65.0': {
-			title: 'Firefox mobile 65',
+		'Firefox mobile 65': {
+			userAgent: 'Mozilla/5.0 (Android 8.0.0; Mobile; rv:65.0) Gecko/65.0 Firefox/65.0',
 			platform: 'Mobile',
 			profile: {
 				name: 'firefox',
@@ -496,16 +466,20 @@
 	} );
 
 	QUnit.test( 'profile( navObject ) - samples', function ( assert ) {
-		// Loop through and run tests
-		Object.keys( uas ).forEach( function ( rawUserAgent ) {
+		var title, data, ret;
+		for ( title in uas ) {
+			data = uas[ title ];
 			// Generate a client profile object and compare recursively
-			var data = uas[ rawUserAgent ],
-				ret = $.client.profile( {
-					userAgent: rawUserAgent,
-					platform: data.platform
-				} );
-			assert.deepEqual( ret, data.profile, 'Client profile support check for ' + data.title + ' (' + data.platform + '): ' + rawUserAgent );
-		} );
+			ret = $.client.profile( {
+				userAgent: data.userAgent,
+				platform: data.platform
+			} );
+			assert.deepEqual(
+				data.profile,
+				ret,
+				'Profile for ' + title + ':' + data.userAgent
+			);
+		}
 	} );
 
 	QUnit.test( 'test( testMap )', function ( assert ) {
@@ -592,15 +566,15 @@
 		document.body.className = 'ltr';
 		testMatch = $.client.test( testMap, ie7Profile );
 		assert.strictEqual(
-			true,
 			testMatch,
+			true,
 			'Accepted by LTR requirement'
 		);
 		document.body.className = 'rtl';
 		testMatch = $.client.test( testMap, ie7Profile );
 		assert.strictEqual(
-			true,
 			testMatch,
+			false,
 			'Rejected by LTR requirement'
 		);
 
