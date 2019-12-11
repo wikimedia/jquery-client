@@ -187,6 +187,22 @@
 				versionNumber: 15
 			}
 		},
+		'KaiOS 2.5': {
+			userAgent: 'Mozilla/5.0 (Mobile; Nokia_8110_4G; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5',
+			// Yes, this property is actually the empty string.
+			// KaiOS inherits this from Boot2Gecko and Firefox OS (intentional)
+			// https://bugzilla.mozilla.org/show_bug.cgi?id=801614
+			platform: '',
+			profile: {
+				name: 'firefox',
+				layout: 'gecko',
+				layoutVersion: 48,
+				platform: 'unknown',
+				version: '48.0',
+				versionBase: '48',
+				versionNumber: 48
+			}
+		},
 		'Safari 2': {
 			userAgent: 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/419 (KHTML, like Gecko) Safari/419.3',
 			platform: 'MacPPC',
