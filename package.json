@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "jquery": "3.5.1",
-    "eslint-config-wikimedia": "0.14.1",
+    "eslint-config-wikimedia": "0.15.3",
     "karma": "4.3.0",
     "karma-cli": "2.0.0",
     "karma-coverage": "2.0.1",
