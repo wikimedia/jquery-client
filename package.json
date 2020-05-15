@@ -22,7 +22,7 @@
     "doc": "jsduck"
   },
   "devDependencies": {
-    "jquery": "3.4.1",
+    "jquery": "3.5.1",
     "eslint-config-wikimedia": "0.14.1",
     "karma": "4.3.0",
     "karma-cli": "2.0.0",
