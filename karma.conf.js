@@ -11,10 +11,15 @@ module.exports = function ( config ) {
 			'*.js': [ 'coverage' ]
 		},
 		reporters: [ 'dots', 'coverage' ],
-		coverageReporter: { reporters: [
-			{ type: 'html', dir: 'coverage/' },
-			{ type: 'text-summary', dir: 'coverage/' }
-		] },
+		coverageReporter: {
+			dir: 'coverage/',
+			subdir: '.',
+			reporters: [
+				{ type: 'html' },
+				{ type: 'text-summary' },
+				{ type: 'clover' }
+			]
+		},
 		browsers: [ 'FirefoxHeadless' ],
 		singleRun: true,
 		autoWatch: false
