@@ -1,8 +1,8 @@
 /*!
  * jQuery Client v2.0.2
- * https://www.mediawiki.org/wiki/JQuery_Client
+ * https://gerrit.wikimedia.org/g/jquery-client/
  *
- * Copyright 2010-2019 jquery-client maintainers and other contributors.
+ * Copyright 2010-2019 wikimedia/jquery-client maintainers and other contributors.
  * Released under the MIT license
  * http://jquery-client.mit-license.org
  */
@@ -27,9 +27,7 @@
 		/**
 		 * Get an object containing information about the client.
 		 *
-		 * @param {Object} [nav] An object with a 'userAgent' and 'platform' property.
-		 *  Defaults to the global `navigator` object.
-		 * @return {Object} The resulting client object will be in the following format:
+		 * The resulting client object will be in the following format:
 		 *
 		 *     {
 		 *         'name': 'firefox',
@@ -40,6 +38,63 @@
 		 *         'versionBase': '3',
 		 *         'versionNumber': 3.5,
 		 *     }
+		 *
+		 * Example:
+		 *
+		 *     if ( $.client.profile().layout == 'gecko' ) {
+		 *         // This will only run in Gecko browsers, such as Mozilla Firefox.
+		 *     }
+		 *
+		 *     var profile = $.client.profile();
+		 *     if ( profile.layout == 'gecko' && profile.platform == 'linux' ) {
+		 *         // This will only run in Gecko browsers on Linux.
+		 *     }
+		 *
+		 * Recognised browser names:
+		 *
+		 * - `android`
+		 * - `blackberry` (untested)
+		 * - `camino` (untested)
+		 * - `chrome` (including Chrome Mobile)
+		 * - `edge`
+		 * - `firefox` (including Firefox Mobile)
+		 * - `iceweasel`
+		 * - `iphone` (untested)
+		 * - `ipod` (untested)
+		 * - `konqueror`
+		 * - `lynx` (untested)
+		 * - `msie`
+		 * - `netscape` (untested)
+		 * - `opera`
+		 * - `ps3` (untested)
+		 * - `rekonq`
+		 * - `safari`
+		 * - `silk`
+		 *
+		 * Recognised layout engines:
+		 *
+		 * - `edge`
+		 * - `gecko`
+		 * - `khtml`
+		 * - `presto`
+		 * - `trident`
+		 * - `webkit`
+		 *
+		 * Note that Chrome and Chromium-based browsers like Opera have their layout
+		 * engine identified as `webkit`. A notable exception is Microsoft Edge, which
+		 * we identify separately as `edge`.
+		 *
+		 * Recognised platforms:
+		 *
+		 * - `iphone`  (untested)
+		 * - `linux`
+		 * - `mac`
+		 * - `solaris` (untested)
+		 * - `win`
+		 *
+		 * @param {Object} [nav] An object with a 'userAgent' and 'platform' property.
+		 *  Defaults to the global `navigator` object.
+		 * @return {Object} The client object
 		 */
 		profile: function ( nav ) {
 			if ( !nav ) {
