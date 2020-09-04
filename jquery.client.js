@@ -59,8 +59,6 @@
 		 * - `edge`
 		 * - `firefox` (including Firefox Mobile)
 		 * - `iceweasel`
-		 * - `iphone` (untested)
-		 * - `ipod` (untested)
 		 * - `konqueror`
 		 * - `lynx` (untested)
 		 * - `msie`
@@ -68,7 +66,7 @@
 		 * - `opera`
 		 * - `ps3` (untested)
 		 * - `rekonq`
-		 * - `safari`
+		 * - `safari` (including Mobile Safari)
 		 * - `silk`
 		 *
 		 * Recognised layout engines:
@@ -86,7 +84,8 @@
 		 *
 		 * Recognised platforms:
 		 *
-		 * - `iphone`  (untested)
+		 * - `ipad`
+		 * - `iphone`
 		 * - `linux`
 		 * - `mac`
 		 * - `solaris` (untested)
@@ -147,7 +146,7 @@
 				// version number
 				versionSuffix = '(\\/|;?\\s|)([a-z0-9\\.\\+]*?)(;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
-				rName = /(camino|chrome|firefox|iceweasel|netscape|konqueror|lynx|msie|opera|safari|ipod|iphone|blackberry|ps3|rekonq|android)/,
+				rName = /(camino|chrome|firefox|iceweasel|netscape|konqueror|lynx|msie|opera|safari|blackberry|ps3|rekonq|android)/,
 				// Match the name of known layout engines
 				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names
@@ -155,7 +154,7 @@
 				// Match the prefix and version of supported layout engines
 				rLayoutVersion = /(applewebkit|gecko|trident|edge)\/(\d+)/,
 				// Match the name of known operating systems
-				rPlatform = /(win|wow64|mac|linux|sunos|solaris|iphone)/,
+				rPlatform = /(win|wow64|mac|linux|sunos|solaris|iphone|ipad)/,
 				// Translations for conforming operating system names
 				platformMap = { sunos: 'solaris', wow64: 'win' },
 

@@ -270,6 +270,32 @@
 				versionNumber: 6
 			}
 		},
+		'iOS 12.4.1 (iPad)': {
+			userAgent: 'Mozilla/5.0 (iPad; CPU OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1',
+			platform: 'iPad',
+			profile: {
+				name: 'safari',
+				layout: 'webkit',
+				layoutVersion: 605,
+				platform: 'ipad',
+				version: '12.1.2',
+				versionBase: '12',
+				versionNumber: 12.1
+			}
+		},
+		'iOS 13.5.1 (iPhone)': {
+			userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1',
+			platform: 'iPhone',
+			profile: {
+				name: 'safari',
+				layout: 'webkit',
+				layoutVersion: 605,
+				platform: 'iphone',
+				version: '13.1.1',
+				versionBase: '13',
+				versionNumber: 13.1
+			}
+		},
 		'Opera 10+ (exact version unspecified)': {
 			userAgent: 'Opera/9.80 (Windows NT 5.1)',
 			platform: 'Win32',
@@ -510,9 +536,7 @@
 				chrome: [ [ '>=', '3' ] ],
 				netscape: [ [ '>=', '9' ] ],
 				konqueror: [ [ '>=', '4.11' ] ],
-				blackberry: false,
-				ipod: false,
-				iphone: false
+				blackberry: false
 			},
 			rtl: {
 				msie: [ [ '>=', '8' ] ],
@@ -522,9 +546,7 @@
 				chrome: [ [ '>=', '3' ] ],
 				netscape: [ [ '>=', '9' ] ],
 				konqueror: [ [ '>=', '4.11' ] ],
-				blackberry: false,
-				ipod: false,
-				iphone: false
+				blackberry: false
 			}
 		};
 		// `test` uses eval, make sure no exceptions are thrown
