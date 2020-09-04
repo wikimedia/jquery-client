@@ -53,18 +53,13 @@
 		 * Recognised browser names:
 		 *
 		 * - `android`
-		 * - `blackberry` (untested)
-		 * - `camino` (untested)
 		 * - `chrome` (including Chrome Mobile)
 		 * - `edge`
 		 * - `firefox` (including Firefox Mobile)
 		 * - `iceweasel`
 		 * - `konqueror`
-		 * - `lynx` (untested)
 		 * - `msie`
-		 * - `netscape` (untested)
 		 * - `opera`
-		 * - `ps3` (untested)
 		 * - `rekonq`
 		 * - `safari` (including Mobile Safari)
 		 * - `silk`
@@ -118,7 +113,7 @@
 				x = 'x',
 				// Words found in user agent strings that may need to be purified
 				// before we do any other pattern matching.
-				rWildWords = /(Opera|Navigator|Minefield|KHTML|Chrome|PLAYSTATION 3|Iceweasel|Android|Firefox)/,
+				rWildWords = /(Opera|KHTML|Chrome|Iceweasel|Android|Firefox)/,
 				// Fixups for user agent strings that contain wild words
 				wildFixups = [
 					// Tons of browsers lie about being something they are not
@@ -127,26 +122,20 @@
 					[ 'Chrome Safari', 'Chrome' ],
 					// KHTML is the layout engine not the browser - LIES!
 					[ 'KHTML', 'Konqueror' ],
-					// Firefox nightly builds
-					[ 'Minefield', 'Firefox' ],
 					// For Iceweasel, strip out "Firefox"
 					[ /Firefox(.+Iceweasel)/, '$1' ],
 					// For Firefox Mobile, strip out "Android;" or "Android [version]" so that we
 					// classify it as Firefox instead of Android (default browser)
-					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ],
-					// This helps keep different versions consistent
-					[ 'Navigator', 'Netscape' ],
-					// This prevents version extraction issues, otherwise mapping would happen later
-					[ 'PLAYSTATION 3', 'PS3' ]
+					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ]
 				],
 				// Strings which precede a version number in a user agent string - combined and
 				// used as match 1 in version detection
-				versionPrefixes = '(camino|chrome|firefox|iceweasel|netscape|netscape6|opera|version|konqueror|lynx|msie|safari|ps3|android)',
+				versionPrefixes = '(chrome|firefox|iceweasel|opera|version|konqueror|msie|safari|android)',
 				// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual
 				// version number
 				versionSuffix = '(\\/|;?\\s|)([a-z0-9\\.\\+]*?)(;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
-				rName = /(camino|chrome|firefox|iceweasel|netscape|konqueror|lynx|msie|opera|safari|blackberry|ps3|rekonq|android)/,
+				rName = /(chrome|firefox|iceweasel|konqueror|msie|opera|safari|rekonq|android)/,
 				// Match the name of known layout engines
 				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names

@@ -135,19 +135,6 @@
 				versionNumber: 4
 			}
 		},
-		'Firefox 4 nightly': {
-			userAgent: 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100815 Minefield/4.0b4pre',
-			platform: 'Linux',
-			profile: {
-				name: 'firefox',
-				layout: 'gecko',
-				layoutVersion: 20100815,
-				platform: 'linux',
-				version: '4.0b4pre',
-				versionBase: '4',
-				versionNumber: 4
-			}
-		},
 		'Firefox 10 nightly': {
 			userAgent: 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0a1) Gecko/20111103 Firefox/10.0a1',
 			platform: 'Linux',
@@ -294,6 +281,45 @@
 				version: '13.1.1',
 				versionBase: '13',
 				versionNumber: 13.1
+			}
+		},
+		'BlackBerry 6': {
+			userAgent: 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+',
+			platform: '',
+			profile: {
+				name: 'safari',
+				layout: 'webkit',
+				layoutVersion: 534,
+				platform: 'unknown',
+				version: '7.1.0.346',
+				versionBase: '7',
+				versionNumber: 7.1
+			}
+		},
+		'PlayStation 3': {
+			userAgent: 'Mozilla/5.0 (PLAYSTATION 3 4.21) AppleWebKit/531.22.8 (KHTML, like Gecko)',
+			platform: '',
+			profile: {
+				layout: 'webkit',
+				layoutVersion: 531,
+				name: 'unknown',
+				platform: 'unknown',
+				version: 'x',
+				versionBase: 'x',
+				versionNumber: 0
+			}
+		},
+		'PlayStation 4': {
+			userAgent: 'Mozilla/5.0 (PlayStation 4 1.70) AppleWebKit/536.26 (KHTML, like Gecko)',
+			platform: '',
+			profile: {
+				layout: 'webkit',
+				layoutVersion: 536,
+				name: 'unknown',
+				platform: 'unknown',
+				version: 'x',
+				versionBase: 'x',
+				versionNumber: 0
 			}
 		},
 		'Opera 10+ (exact version unspecified)': {
@@ -534,9 +560,7 @@
 				opera: [ [ '>=', '9.6' ] ],
 				safari: [ [ '>=', '3' ] ],
 				chrome: [ [ '>=', '3' ] ],
-				netscape: [ [ '>=', '9' ] ],
-				konqueror: [ [ '>=', '4.11' ] ],
-				blackberry: false
+				konqueror: [ [ '>=', '4.11' ] ]
 			},
 			rtl: {
 				msie: [ [ '>=', '8' ] ],
@@ -544,9 +568,7 @@
 				opera: [ [ '>=', '9.6' ] ],
 				safari: [ [ '>=', '3' ] ],
 				chrome: [ [ '>=', '3' ] ],
-				netscape: [ [ '>=', '9' ] ],
-				konqueror: [ [ '>=', '4.11' ] ],
-				blackberry: false
+				konqueror: [ [ '>=', '4.11' ] ]
 			}
 		};
 		// `test` uses eval, make sure no exceptions are thrown
