@@ -87,12 +87,12 @@
 				],
 				// Strings which precede a version number in a user agent string - combined and
 				// used as match 1 in version detection
-				versionPrefixes = '(camino|chrome|firefox|iceweasel|netscape|netscape6|opera|version|konqueror|lynx|msie|safari|ps3|android)',
+				versionPrefixes = '(camino|chrome|crios|firefox|iceweasel|netscape|netscape6|opera|version|konqueror|lynx|msie|safari|ps3|android)',
 				// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual
 				// version number
 				versionSuffix = '(\\/|;?\\s|)([a-z0-9\\.\\+]*?)(;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
-				rName = /(camino|chrome|firefox|iceweasel|netscape|konqueror|lynx|msie|opera|safari|ipod|iphone|blackberry|ps3|rekonq|android)/,
+				rName = /(camino|chrome|crios|firefox|iceweasel|netscape|konqueror|lynx|msie|opera|safari|ipod|iphone|blackberry|ps3|rekonq|android)/,
 				// Match the name of known layout engines
 				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names
