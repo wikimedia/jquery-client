@@ -296,6 +296,19 @@
 				versionNumber: 13.1
 			}
 		},
+		'Chrome for iOS': {
+			userAgent: 'Mozilla/5.0 (iPad; CPU OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/84.0.4147.122 Mobile/15E148 Safari/604.1',
+			platform: 'iPhone',
+			profile: {
+				name: 'crios',
+				layout: 'webkit',
+				layoutVersion: 605,
+				platform: 'iphone',
+				version: '84.0.4147.122',
+				versionBase: '84',
+				versionNumber: 84
+			}
+		},
 		'BlackBerry 6': {
 			userAgent: 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+',
 			platform: '',

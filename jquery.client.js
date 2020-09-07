@@ -54,6 +54,7 @@
 		 *
 		 * - `android`
 		 * - `chrome` (including Chrome Mobile)
+		 * - `crios` (Chrome on iOS, which uses Mobile Safari)
 		 * - `edge`
 		 * - `firefox` (including Firefox Mobile)
 		 * - `iceweasel`
@@ -130,12 +131,12 @@
 				],
 				// Strings which precede a version number in a user agent string - combined and
 				// used as match 1 in version detection
-				versionPrefixes = '(chrome|firefox|iceweasel|opera|version|konqueror|msie|safari|android)',
+				versionPrefixes = '(chrome|crios|firefox|iceweasel|opera|version|konqueror|msie|safari|android)',
 				// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual
 				// version number
 				versionSuffix = '(\\/|;?\\s|)([a-z0-9\\.\\+]*?)(;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
-				rName = /(chrome|firefox|iceweasel|konqueror|msie|opera|safari|rekonq|android)/,
+				rName = /(chrome|crios|firefox|iceweasel|konqueror|msie|opera|safari|rekonq|android)/,
 				// Match the name of known layout engines
 				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names
