@@ -491,8 +491,8 @@
 				platform: data.platform
 			} );
 			assert.deepEqual(
-				data.profile,
 				ret,
+				data.profile,
 				'Profile for ' + title + ':' + data.userAgent
 			);
 		}
