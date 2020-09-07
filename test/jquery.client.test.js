@@ -460,6 +460,19 @@
 				versionBase: '65',
 				versionNumber: 65
 			}
+		},
+		'Safari on iPhone': {
+			userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1',
+			platform: 'unknown',
+			profile: {
+				name: 'iphone',
+				layout: 'webkit',
+				layoutVersion: 605,
+				platform: 'unknown',
+				version: '13.0.1',
+				versionBase: '13',
+				versionNumber: 13
+			}
 		}
 	};
 
