@@ -129,12 +129,11 @@
 					// classify it as Firefox instead of Android (default browser)
 					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ]
 				],
-				// Strings which precede a version number in a user agent string - combined and
-				// used as match 1 in version detection
-				versionPrefixes = '(chrome|crios|firefox|iceweasel|opera|version|konqueror|msie|safari|android)',
-				// Used as matches 2, 3 and 4 in version extraction - 3 is used as actual
-				// version number
-				versionSuffix = '(\\/|;?\\s|)([a-z0-9\\.\\+]*?)(;|dev|rel|\\)|\\s|$)',
+				// Strings which precede a version number in a user agent string
+				versionPrefixes = '(?:chrome|crios|firefox|iceweasel|opera|version|konqueror|msie|safari|android)',
+				// This matches the actual version number, with non-capturing groups for the
+				// separator and suffix
+				versionSuffix = '(?:\\/|;?\\s|)([a-z0-9\\.\\+]*?)(?:;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
 				rName = /(chrome|crios|firefox|iceweasel|konqueror|msie|opera|safari|rekonq|android)/,
 				// Match the name of known layout engines
@@ -183,7 +182,7 @@
 				platform = platformMap[ match[ 1 ] ] || match[ 1 ];
 			}
 			if ( ( match = new RegExp( versionPrefixes + versionSuffix ).exec( ua ) ) ) {
-				version = match[ 3 ];
+				version = match[ 1 ];
 			}
 
 			// Edge Cases -- did I mention about how user agent string lie?
