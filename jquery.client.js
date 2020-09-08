@@ -52,11 +52,11 @@
 		 *
 		 * Recognised browser names:
 		 *
-		 * - `android`
-		 * - `chrome` (including Chrome Mobile)
-		 * - `crios` (Chrome on iOS, which uses Mobile Safari)
-		 * - `edge`
-		 * - `firefox` (including Firefox Mobile)
+		 * - `android` (legacy Android browser, prior to Chrome Mobile)
+		 * - `chrome` (includes Chrome Mobile, Microsoft Edge, and others)
+		 * - `crios` (Chrome on iOS, which uses Mobile Safari).
+		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML).
+		 * - `firefox` (includes Firefox Mobile)
 		 * - `iceweasel`
 		 * - `konqueror`
 		 * - `msie`
@@ -67,7 +67,7 @@
 		 *
 		 * Recognised layout engines:
 		 *
-		 * - `edge`
+		 * - `edge` (EdgeHTML 12-18, as used by legacy Microsoft Edge)
 		 * - `gecko`
 		 * - `khtml`
 		 * - `presto`
