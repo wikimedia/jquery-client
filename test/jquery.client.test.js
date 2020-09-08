@@ -95,6 +95,19 @@
 				versionNumber: 12
 			}
 		},
+		'Microsoft Edge 85 (Chromuim) on Win 10 x86': {
+			userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36 Edg/85.0.564.44',
+			platform: 'Win32',
+			profile: {
+				name: 'chrome',
+				layout: 'webkit',
+				layoutVersion: 537,
+				platform: 'win',
+				version: '85.0.4183.83',
+				versionBase: '85',
+				versionNumber: 85
+			}
+		},
 		// Firefox 2
 		'Firefox 3.5': {
 			userAgent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1.19) Gecko/20110420 Firefox/3.5.19',
