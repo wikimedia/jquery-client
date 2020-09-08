@@ -54,8 +54,8 @@
 		 *
 		 * - `android` (legacy Android browser, prior to Chrome Mobile)
 		 * - `chrome` (includes Chrome Mobile, Microsoft Edge, and others)
-		 * - `crios` (Chrome on iOS, which uses Mobile Safari).
-		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML).
+		 * - `crios` (Chrome on iOS, which uses Mobile Safari)
+		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML)
 		 * - `firefox` (includes Firefox Mobile, Iceweasel, and others)
 		 * - `konqueror`
 		 * - `msie`
@@ -74,8 +74,7 @@
 		 * - `webkit`
 		 *
 		 * Note that Chrome and Chromium-based browsers like Opera have their layout
-		 * engine identified as `webkit`. A notable exception is Microsoft Edge, which
-		 * we identify separately as `edge`.
+		 * engine identified as `webkit`.
 		 *
 		 * Recognised platforms:
 		 *
@@ -111,17 +110,12 @@
 				uk = 'unknown',
 				// Generic version digit
 				x = 'x',
-				// Words found in user agent strings that may need to be purified
-				// before we do any other pattern matching.
-				rWildWords = /(Opera|KHTML|Chrome|Android|Firefox)/,
 				// Fixups for user agent strings that contain wild words
 				wildFixups = [
-					// Tons of browsers lie about being something they are not
-					[ /(MSIE|KHTML,?\slike\sGecko|Konqueror)/, '' ],
 					// Chrome lives in the shadow of Safari still
 					[ 'Chrome Safari', 'Chrome' ],
 					// KHTML is the layout engine not the browser - LIES!
-					[ 'KHTML', 'Konqueror' ],
+					[ 'KHTML/', 'Konqueror/' ],
 					// For Firefox Mobile, strip out "Android;" or "Android [version]" so that we
 					// classify it as Firefox instead of Android (default browser)
 					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ]
@@ -154,13 +148,11 @@
 				platform = uk,
 				version = x;
 
-			if ( ( match = rWildWords.exec( ua ) ) ) {
-				// Takes a userAgent string and fixes it into something we can more
-				// easily work with
-				wildFixups.forEach( function ( fixup ) {
-					ua = ua.replace( fixup[ 0 ], fixup[ 1 ] );
-				} );
-			}
+			// Takes a userAgent string and fixes it into something we can more
+			// easily work with
+			wildFixups.forEach( function ( fixup ) {
+				ua = ua.replace( fixup[ 0 ], fixup[ 1 ] );
+			} );
 			// Everything will be in lowercase from now on
 			ua = ua.toLowerCase();
 
