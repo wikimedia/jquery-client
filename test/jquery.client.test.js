@@ -379,26 +379,26 @@
 			userAgent: 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.130',
 			platform: 'Win32',
 			profile: {
-				name: 'opera',
+				name: 'chrome',
 				layout: 'webkit',
 				layoutVersion: 537,
 				platform: 'win',
-				version: '15.0.1147.130',
-				versionBase: '15',
-				versionNumber: 15
+				version: '28.0.1500.52',
+				versionBase: '28',
+				versionNumber: 28
 			}
 		},
 		'Opera 70': {
 			userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36 OPR/70.0.3728.154',
 			platform: 'Linux x86_64',
 			profile: {
-				name: 'opera',
+				name: 'chrome',
 				layout: 'webkit',
 				layoutVersion: 537,
 				platform: 'linux',
-				version: '70.0.3728.154',
-				versionBase: '70',
-				versionNumber: 70
+				version: '85.0.4183.102',
+				versionBase: '85',
+				versionNumber: 85
 			}
 		},
 		// Chrome 5

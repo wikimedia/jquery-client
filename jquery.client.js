@@ -53,13 +53,13 @@
 		 * Recognised browser names:
 		 *
 		 * - `android` (legacy Android browser, prior to Chrome Mobile)
-		 * - `chrome` (includes Chrome Mobile, Microsoft Edge, and others)
+		 * - `chrome` (includes Chrome Mobile, Microsoft Edge, Opera, and others)
 		 * - `crios` (Chrome on iOS, which uses Mobile Safari)
 		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML)
 		 * - `firefox` (includes Firefox Mobile, Iceweasel, and others)
 		 * - `konqueror`
 		 * - `msie`
-		 * - `opera`
+		 * - `opera` (legacy Opera, which uses Presto)
 		 * - `rekonq`
 		 * - `safari` (including Mobile Safari)
 		 * - `silk`
@@ -187,13 +187,6 @@
 					version = match[ 1 ];
 				} else {
 					version = '10';
-				}
-			}
-			// And Opera 15's lies about being Chrome
-			if ( name === 'chrome' && ( match = ua.match( /\bopr\/([0-9.]*)/ ) ) ) {
-				if ( match[ 1 ] ) {
-					name = 'opera';
-					version = match[ 1 ];
 				}
 			}
 			// And IE 11's lies about being not being IE
