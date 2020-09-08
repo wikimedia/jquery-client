@@ -56,8 +56,7 @@
 		 * - `chrome` (includes Chrome Mobile, Microsoft Edge, and others)
 		 * - `crios` (Chrome on iOS, which uses Mobile Safari).
 		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML).
-		 * - `firefox` (includes Firefox Mobile)
-		 * - `iceweasel`
+		 * - `firefox` (includes Firefox Mobile, Iceweasel, and others)
 		 * - `konqueror`
 		 * - `msie`
 		 * - `opera`
@@ -114,7 +113,7 @@
 				x = 'x',
 				// Words found in user agent strings that may need to be purified
 				// before we do any other pattern matching.
-				rWildWords = /(Opera|KHTML|Chrome|Iceweasel|Android|Firefox)/,
+				rWildWords = /(Opera|KHTML|Chrome|Android|Firefox)/,
 				// Fixups for user agent strings that contain wild words
 				wildFixups = [
 					// Tons of browsers lie about being something they are not
@@ -123,19 +122,17 @@
 					[ 'Chrome Safari', 'Chrome' ],
 					// KHTML is the layout engine not the browser - LIES!
 					[ 'KHTML', 'Konqueror' ],
-					// For Iceweasel, strip out "Firefox"
-					[ /Firefox(.+Iceweasel)/, '$1' ],
 					// For Firefox Mobile, strip out "Android;" or "Android [version]" so that we
 					// classify it as Firefox instead of Android (default browser)
 					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ]
 				],
 				// Strings which precede a version number in a user agent string
-				versionPrefixes = '(?:chrome|crios|firefox|iceweasel|opera|version|konqueror|msie|safari|android)',
+				versionPrefixes = '(?:chrome|crios|firefox|opera|version|konqueror|msie|safari|android)',
 				// This matches the actual version number, with non-capturing groups for the
 				// separator and suffix
 				versionSuffix = '(?:\\/|;?\\s|)([a-z0-9\\.\\+]*?)(?:;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
-				rName = /(chrome|crios|firefox|iceweasel|konqueror|msie|opera|safari|rekonq|android)/,
+				rName = /(chrome|crios|firefox|konqueror|msie|opera|safari|rekonq|android)/,
 				// Match the name of known layout engines
 				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names

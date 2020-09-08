@@ -165,20 +165,20 @@
 			userAgent: 'Mozilla/5.0 (X11; Linux i686; rv:10.0.6) Gecko/20100101 Iceweasel/10.0.6',
 			platform: 'Linux',
 			profile: {
-				name: 'iceweasel',
+				name: 'unknown',
 				layout: 'gecko',
 				layoutVersion: 20100101,
 				platform: 'linux',
-				version: '10.0.6',
-				versionBase: '10',
-				versionNumber: 10
+				version: 'x',
+				versionBase: 'x',
+				versionNumber: 0
 			}
 		},
 		'Iceweasel 15.0.1': {
 			userAgent: 'Mozilla/5.0 (X11; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1 Iceweasel/15.0.1',
 			platform: 'Linux',
 			profile: {
-				name: 'iceweasel',
+				name: 'firefox',
 				layout: 'gecko',
 				layoutVersion: 20100101,
 				platform: 'linux',
