@@ -1,0 +1,38 @@
+{
+    "opts": {
+        "encoding": "utf8",
+        "destination": "docs",
+        "package": "package.json",
+        "readme": "README.md",
+        "recurse": true,
+        "private": true,
+        "template": "node_modules/jsdoc-wmf-theme",
+        "class-hierarchy": {
+          "showList": true
+        }
+    },
+    "plugins": [
+        "plugins/markdown",
+        "plugins/summarize",
+        "node_modules/jsdoc-class-hierarchy"
+    ],
+    "source": {
+        "include": [ "src" ]
+    },
+    "templates": {
+        "cleverLinks": true,
+        "default": {
+            "useLongnameInNav": true
+        },
+        "wmf": {
+            "maintitle": "jQuery Client",
+            "repository": "https://gerrit.wikimedia.org/g/jquery-client",
+            "hideSections": ["Events"],
+            "linkMap": {
+                "Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+                "Object": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+                "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error"
+            }
+        }
+    }
+}

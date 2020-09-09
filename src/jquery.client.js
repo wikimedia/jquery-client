@@ -11,7 +11,7 @@
  * User-agent detection
  *
  * @class jQuery.client
- * @singleton
+ * @hideconstructor
  */
 ( function () {
 
@@ -37,17 +37,6 @@
 		 *         'version': '3.5.1',
 		 *         'versionBase': '3',
 		 *         'versionNumber': 3.5,
-		 *     }
-		 *
-		 * Example:
-		 *
-		 *     if ( $.client.profile().layout == 'gecko' ) {
-		 *         // This will only run in Gecko browsers, such as Mozilla Firefox.
-		 *     }
-		 *
-		 *     var profile = $.client.profile();
-		 *     if ( profile.layout == 'gecko' && profile.platform == 'linux' ) {
-		 *         // This will only run in Gecko browsers on Linux.
 		 *     }
 		 *
 		 * Recognised browser names:
@@ -86,6 +75,18 @@
 		 * - `solaris` (untested)
 		 * - `win`
 		 *
+		 * Example:
+		 *
+		 *     if ( $.client.profile().layout == 'gecko' ) {
+		 *         // This will only run in Gecko browsers, such as Mozilla Firefox.
+		 *     }
+		 *
+		 *     var profile = $.client.profile();
+		 *     if ( profile.layout == 'gecko' && profile.platform == 'linux' ) {
+		 *         // This will only run in Gecko browsers on Linux.
+		 *     }
+		 *
+		 * @memberof jQuery.client
 		 * @param {Object} [nav] An object with a 'userAgent' and 'platform' property.
 		 *  Defaults to the global `navigator` object.
 		 * @return {Object} The client object
@@ -263,6 +264,7 @@
 		 *         }
 		 *     }
 		 *
+		 * @memberof jQuery.client
 		 * @param {Object} map Browser support map
 		 * @param {Object} [profile] A client-profile object
 		 * @param {boolean} [exactMatchOnly=false] Only return true if the browser is matched,

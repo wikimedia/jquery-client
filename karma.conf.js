@@ -4,7 +4,7 @@ module.exports = function ( config ) {
 		frameworks: [ 'qunit' ],
 		files: [
 			'node_modules/jquery/dist/jquery.js',
-			'jquery.client.js',
+			'src/jquery.client.js',
 			'test/jquery.client.test.js'
 		],
 		preprocessors: {

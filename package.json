@@ -11,7 +11,7 @@
     "url": "https://gerrit.wikimedia.org/r/jquery-client"
   },
   "files": [
-    "jquery.client.js",
+    "src/",
     "AUTHORS.txt",
     "README.md",
     "LICENSE-MIT"
@@ -19,11 +19,14 @@
   "scripts": {
     "lint": "eslint --cache --max-warnings 0",
     "test": "npm run lint . && karma start",
-    "doc": "jsduck"
+    "doc": "jsdoc -c .jsdoc.json"
   },
   "devDependencies": {
-    "jquery": "3.5.1",
     "eslint-config-wikimedia": "0.17.0",
+    "jquery": "3.5.1",
+    "jsdoc": "3.6.5",
+    "jsdoc-class-hierarchy": "1.1.2",
+    "jsdoc-wmf-theme": "0.0.3",
     "karma": "5.2.1",
     "karma-cli": "2.0.0",
     "karma-coverage": "2.0.3",
