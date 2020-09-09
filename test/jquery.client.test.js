@@ -309,6 +309,19 @@
 				versionNumber: 84
 			}
 		},
+		'Firefox for iOS': {
+			userAgent: 'Mozilla/5.0 (iPhone; CPU OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/28.1 Mobile/15E148 Safari/605.1.15',
+			platform: 'iPhone',
+			profile: {
+				name: 'fxios',
+				layout: 'webkit',
+				layoutVersion: 605,
+				platform: 'iphone',
+				version: '28.1',
+				versionBase: '28',
+				versionNumber: 28.1
+			}
+		},
 		'BlackBerry 6': {
 			userAgent: 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+',
 			platform: '',

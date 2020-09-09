@@ -57,6 +57,7 @@
 		 * - `crios` (Chrome on iOS, which uses Mobile Safari)
 		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML)
 		 * - `firefox` (includes Firefox Mobile, Iceweasel, and others)
+		 * - `fxios` (Firefox on iOS, which uses Mobile Safari)
 		 * - `konqueror`
 		 * - `msie`
 		 * - `opera` (legacy Opera, which uses Presto)
@@ -121,12 +122,12 @@
 					[ /Android(?:;|\s[a-zA-Z0-9.+-]+)(.*Firefox)/, '$1' ]
 				],
 				// Strings which precede a version number in a user agent string
-				versionPrefixes = '(?:chrome|crios|firefox|opera|version|konqueror|msie|safari|android)',
+				versionPrefixes = '(?:chrome|crios|firefox|fxios|opera|version|konqueror|msie|safari|android)',
 				// This matches the actual version number, with non-capturing groups for the
 				// separator and suffix
 				versionSuffix = '(?:\\/|;?\\s|)([a-z0-9\\.\\+]*?)(?:;|dev|rel|\\)|\\s|$)',
 				// Match the names of known browser families
-				rName = /(chrome|crios|firefox|konqueror|msie|opera|safari|rekonq|android)/,
+				rName = /(chrome|crios|firefox|fxios|konqueror|msie|opera|safari|rekonq|android)/,
 				// Match the name of known layout engines
 				rLayout = /(gecko|konqueror|msie|trident|edge|opera|webkit)/,
 				// Translations for conforming layout names
