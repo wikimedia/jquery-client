@@ -1,9 +1,10 @@
-3.0.0 / UNRELEASED
+3.0.0 / 2020-09-09
 ==================
 
 ### Added
 
 * Add Chrome for iOS browser as `crios`, previously misidentified as Safari 2.0. (Ed Sanders) [T262223](http://phabricator.wikimedia.org/T262223)
+* Add Firefox for iOS browser as `fxios`, previously misidentified as Safari 2.0. (Ed Sanders)
 * Add the iPad platform as `ipad`, previously `unknown`. (Timo Tijhof)
 
 ### Changed

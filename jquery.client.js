@@ -1,10 +1,10 @@
 /*!
- * jQuery Client v2.0.2
+ * jQuery Client 3.0.0
  * https://gerrit.wikimedia.org/g/jquery-client/
  *
- * Copyright 2010-2019 wikimedia/jquery-client maintainers and other contributors.
+ * Copyright 2010-2020 wikimedia/jquery-client maintainers and other contributors.
  * Released under the MIT license
- * http://jquery-client.mit-license.org
+ * https://jquery-client.mit-license.org
  */
 
 /**
