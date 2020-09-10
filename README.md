@@ -1,9 +1,12 @@
-[![npm](https://img.shields.io/npm/v/jquery-client.svg?style=flat)](https://www.npmjs.com/package/jquery-client)
-
 jQuery Client
 =================
 
 A minimal user-agent parser for client-side JavaScript.
+
+## Install
+
+[jquery-client](https://www.npmjs.com/package/jquery-client) package on npmjs.org.
+
 
 ## Documentation
 
