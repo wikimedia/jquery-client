@@ -8,7 +8,7 @@ module.exports = function ( config ) {
 			'test/jquery.client.test.js'
 		],
 		preprocessors: {
-			'*.js': [ 'coverage' ]
+			'src/*.js': [ 'coverage' ]
 		},
 		reporters: [ 'dots', 'coverage' ],
 		coverageReporter: {
