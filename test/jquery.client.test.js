@@ -161,6 +161,19 @@
 				versionNumber: 10
 			}
 		},
+		'Firefox 100': {
+			userAgent: 'Firefox: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0',
+			platform: 'MacIntel',
+			profile: {
+				name: 'firefox',
+				layout: 'gecko',
+				layoutVersion: 20100101,
+				platform: 'mac',
+				version: '100.0',
+				versionBase: '100',
+				versionNumber: 100
+			}
+		},
 		'Iceweasel 10.0.6': {
 			userAgent: 'Mozilla/5.0 (X11; Linux i686; rv:10.0.6) Gecko/20100101 Iceweasel/10.0.6',
 			platform: 'Linux',
@@ -445,6 +458,19 @@
 				version: '12.0.742.68',
 				versionBase: '12',
 				versionNumber: 12
+			}
+		},
+		'Chrome 100 on Windows': {
+			userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4606.54 Safari/537.36',
+			platform: 'Win64',
+			profile: {
+				name: 'chrome',
+				layout: 'webkit',
+				layoutVersion: 537,
+				platform: 'win',
+				version: '100.0.4606.54',
+				versionBase: '100',
+				versionNumber: 100
 			}
 		},
 		'Android WebKit Browser 2.3': {
