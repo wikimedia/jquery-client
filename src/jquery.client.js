@@ -2,9 +2,8 @@
  * jQuery Client 3.0.0
  * https://gerrit.wikimedia.org/g/jquery-client/
  *
- * Copyright 2010-2020 wikimedia/jquery-client maintainers and other contributors.
- * Released under the MIT license
- * https://jquery-client.mit-license.org
+ * Copyright Trevor Parscal, Timo Tijhof, and Roan Kattouw.
+ * Released under the MIT license.
  */
 
 /**

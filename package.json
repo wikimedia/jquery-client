@@ -6,10 +6,7 @@
   "keywords": [
     "jquery-plugin"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://gerrit.wikimedia.org/r/jquery-client"
-  },
+  "homepage": "https://gerrit.wikimedia.org/g/jquery-client",
   "files": [
     "src/",
     "AUTHORS.txt",
@@ -19,6 +16,7 @@
   "scripts": {
     "lint": "eslint --cache --max-warnings 0",
     "test": "npm run lint . && karma start",
+    "authors": "git shortlog -se | sed 's/[[:space:]]*[0-9]*[[:space:]]//' && echo | grep -v jenkins > AUTHORS.txt",
     "doc": "jsdoc -c .jsdoc.json"
   },
   "devDependencies": {
