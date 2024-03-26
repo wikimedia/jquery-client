@@ -13,11 +13,69 @@
  * @hideconstructor
  */
 ( function () {
+	/**
+	 * @typedef {Object} jQuery.client.Profile An object containing information about the client.
+	 *
+	 * @property {string|'unknown'} name Name of the browser. Recognized browser names:
+	 * - `android` (legacy Android browser, prior to Chrome Mobile)
+	 * - `chrome` (includes Chrome Mobile, Microsoft Edge, Opera, and others)
+	 * - `crios` (Chrome on iOS, which uses Mobile Safari)
+	 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML)
+	 * - `firefox` (includes Firefox Mobile, Iceweasel, and others)
+	 * - `fxios` (Firefox on iOS, which uses Mobile Safari)
+	 * - `konqueror`
+	 * - `msie`
+	 * - `opera` (legacy Opera, which uses Presto)
+	 * - `rekonq`
+	 * - `safari` (including Mobile Safari)
+	 * - `silk`
+	 *
+	 * @property {string|'unknown'} layout Name of the layout engine. Recognised layout engines:
+	 *
+	 * - `edge` (EdgeHTML 12-18, as used by legacy Microsoft Edge)
+	 * - `gecko`
+	 * - `khtml`
+	 * - `presto`
+	 * - `trident`
+	 * - `webkit`
+	 *
+	 * Note that Chrome and Chromium-based browsers like Opera have their layout
+	 * engine identified as `webkit`.
+	 *
+	 * @property {number|'unknown'} layoutVersion Version of the layout engine,
+	 * e.g. `6` or `20101026`.
+	 *
+	 * @property {string|'unknown'} platform Operating system the browser is running on.
+	 * Recognised platforms:
+	 *
+	 * - `ipad`
+	 * - `iphone`
+	 * - `linux`
+	 * - `mac`
+	 * - `solaris` (untested)
+	 * - `win`
+	 *
+	 * @property {string|'unknown'} version
+	 * @property {string|'unknown'} versionBase
+	 * @property {number} versionNumber
+	 *
+	 * @example
+	 * {
+	 *     'name': 'firefox',
+	 *     'layout': 'gecko',
+	 *     'layoutVersion': 20101026,
+	 *     'platform': 'linux'
+	 *     'version': '3.5.1',
+	 *     'versionBase': '3',
+	 *     'versionNumber': 3.5,
+	 * }
+	 */
 
 	/**
+	 * Keyed by the user agent string.
+	 *
 	 * @private
-	 * @property {Object} profileCache Keyed by userAgent string,
-	 * value is the parsed $.client.profile object for that user agent.
+	 * @type {Object.<string,jQuery.client.Profile>}
 	 */
 	const profileCache = {};
 
@@ -26,69 +84,20 @@
 		/**
 		 * Get an object containing information about the client.
 		 *
-		 * The resulting client object will be in the following format:
+		 * @example
+		 * if ( $.client.profile().layout == 'gecko' ) {
+		 *     // This will only run in Gecko browsers, such as Mozilla Firefox.
+		 * }
 		 *
-		 *     {
-		 *         'name': 'firefox',
-		 *         'layout': 'gecko',
-		 *         'layoutVersion': 20101026,
-		 *         'platform': 'linux'
-		 *         'version': '3.5.1',
-		 *         'versionBase': '3',
-		 *         'versionNumber': 3.5,
-		 *     }
-		 *
-		 * Recognised browser names:
-		 *
-		 * - `android` (legacy Android browser, prior to Chrome Mobile)
-		 * - `chrome` (includes Chrome Mobile, Microsoft Edge, Opera, and others)
-		 * - `crios` (Chrome on iOS, which uses Mobile Safari)
-		 * - `edge` (legacy Microsoft Edge, which uses EdgeHTML)
-		 * - `firefox` (includes Firefox Mobile, Iceweasel, and others)
-		 * - `fxios` (Firefox on iOS, which uses Mobile Safari)
-		 * - `konqueror`
-		 * - `msie`
-		 * - `opera` (legacy Opera, which uses Presto)
-		 * - `rekonq`
-		 * - `safari` (including Mobile Safari)
-		 * - `silk`
-		 *
-		 * Recognised layout engines:
-		 *
-		 * - `edge` (EdgeHTML 12-18, as used by legacy Microsoft Edge)
-		 * - `gecko`
-		 * - `khtml`
-		 * - `presto`
-		 * - `trident`
-		 * - `webkit`
-		 *
-		 * Note that Chrome and Chromium-based browsers like Opera have their layout
-		 * engine identified as `webkit`.
-		 *
-		 * Recognised platforms:
-		 *
-		 * - `ipad`
-		 * - `iphone`
-		 * - `linux`
-		 * - `mac`
-		 * - `solaris` (untested)
-		 * - `win`
-		 *
-		 * Example:
-		 *
-		 *     if ( $.client.profile().layout == 'gecko' ) {
-		 *         // This will only run in Gecko browsers, such as Mozilla Firefox.
-		 *     }
-		 *
-		 *     var profile = $.client.profile();
-		 *     if ( profile.layout == 'gecko' && profile.platform == 'linux' ) {
-		 *         // This will only run in Gecko browsers on Linux.
-		 *     }
+		 * var profile = $.client.profile();
+		 * if ( profile.layout == 'gecko' && profile.platform == 'linux' ) {
+		 *     // This will only run in Gecko browsers on Linux.
+		 * }
 		 *
 		 * @memberof jQuery.client
-		 * @param {Object} [nav] An object with a 'userAgent' and 'platform' property.
-		 *  Defaults to the global `navigator` object.
-		 * @return {Object} The client object
+		 * @param {{userAgent: string, platform: string}} [nav=window.navigator] An object with
+		 *  a `userAgent` and `platform` property.
+		 * @return {jQuery.client.Profile}
 		 */
 		profile: function ( nav ) {
 			if ( !nav ) {
@@ -263,7 +272,7 @@
 		 *
 		 * @memberof jQuery.client
 		 * @param {Object} map Browser support map
-		 * @param {Object} [profile] A client-profile object
+		 * @param {jQuery.client.Profile} [profile] A client-profile object
 		 * @param {boolean} [exactMatchOnly=false] Only return true if the browser is matched,
 		 *  otherwise returns true if the browser is not found.
 		 *

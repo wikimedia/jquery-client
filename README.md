@@ -10,7 +10,7 @@ A minimal user-agent parser for client-side JavaScript.
 
 ## Documentation
 
-See [API Documentation](https://doc.wikimedia.org/jquery-client/master/#!/api/jQuery.client) and [Test coverage](https://doc.wikimedia.org/cover/jquery-client/) on doc.wikimedia.org.
+See [API Documentation](https://doc.wikimedia.org/jquery-client/master/) and [Test coverage](https://doc.wikimedia.org/cover/jquery-client/) on doc.wikimedia.org.
 
 ## Issue tracker
 
