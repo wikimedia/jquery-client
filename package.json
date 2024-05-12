@@ -22,9 +22,9 @@
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.28.2",
 		"jquery": "3.5.1",
-		"jsdoc": "3.6.5",
+		"jsdoc": "4.0.3",
 		"jsdoc-class-hierarchy": "1.1.2",
-		"jsdoc-wmf-theme": "0.0.3",
+		"jsdoc-wmf-theme": "1.0.1",
 		"karma": "5.2.1",
 		"karma-cli": "2.0.0",
 		"karma-coverage": "2.0.3",
