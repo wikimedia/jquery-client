@@ -19,7 +19,7 @@
 	 * @property {Object} profileCache Keyed by userAgent string,
 	 * value is the parsed $.client.profile object for that user agent.
 	 */
-	var profileCache = {};
+	const profileCache = {};
 
 	$.client = {
 
@@ -100,8 +100,7 @@
 				return profileCache[ nav.userAgent + '|' + nav.platform ];
 			}
 
-			// eslint-disable-next-line vars-on-top
-			var
+			let
 				versionNumber,
 				key = nav.userAgent + '|' + nav.platform,
 
@@ -151,7 +150,7 @@
 
 			// Takes a userAgent string and fixes it into something we can more
 			// easily work with
-			wildFixups.forEach( function ( fixup ) {
+			wildFixups.forEach( ( fixup ) => {
 				ua = ua.replace( fixup[ 0 ], fixup[ 1 ] );
 			} );
 			// Everything will be in lowercase from now on
@@ -272,7 +271,7 @@
 		 * @return {boolean} The current browser is in the support map
 		 */
 		test: function ( map, profile, exactMatchOnly ) {
-			var conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
+			let conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
 			profile = $.isPlainObject( profile ) ? profile : $.client.profile();
 			if ( map.ltr && map.rtl ) {
 				dir = $( document.body ).is( '.rtl' ) ? 'rtl' : 'ltr';

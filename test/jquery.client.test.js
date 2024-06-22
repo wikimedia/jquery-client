@@ -1,6 +1,6 @@
 ( function () {
 	// Object keyed by userAgent.
-	var uas = {
+	const uas = {
 		// Internet Explorer 6
 		'Internet Explorer 7': {
 			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
@@ -595,11 +595,11 @@
 
 	QUnit.module( 'jquery.client' );
 
-	QUnit.test( 'profile( navObject )', function ( assert ) {
-		var p = $.client.profile();
+	QUnit.test( 'profile( navObject )', ( assert ) => {
+		const p = $.client.profile();
 
 		function unknownOrType( val, type, summary ) {
-			assert.ok( typeof val === type || val === 'unknown', summary );
+			assert.true( typeof val === type || val === 'unknown', summary );
 		}
 
 		assert.strictEqual( typeof p, 'object', 'profile returns an object' );
@@ -611,8 +611,8 @@
 		assert.strictEqual( typeof p.versionNumber, 'number', 'p.versionNumber is a number' );
 	} );
 
-	QUnit.test( 'profile( navObject ) - samples', function ( assert ) {
-		var title, data, ret;
+	QUnit.test( 'profile( navObject ) - samples', ( assert ) => {
+		let title, data, ret;
 		for ( title in uas ) {
 			data = uas[ title ];
 			// Generate a client profile object and compare recursively
@@ -628,9 +628,9 @@
 		}
 	} );
 
-	QUnit.test( 'test( testMap )', function ( assert ) {
+	QUnit.test( 'test( testMap )', ( assert ) => {
 		// Example from WikiEditor
-		var ie7Profile, testMatch, testMap;
+		let ie7Profile, testMatch, testMap;
 		testMap = {
 			ltr: {
 				msie: [ [ '>=', '7.0' ] ],
@@ -670,8 +670,8 @@
 		}, ie7Profile ), false, 'version=false rejects all versions' );
 	} );
 
-	QUnit.test( 'test( testMap, exactMatchOnly )', function ( assert ) {
-		var ie7Profile = $.client.profile( {
+	QUnit.test( 'test( testMap, exactMatchOnly )', ( assert ) => {
+		const ie7Profile = $.client.profile( {
 			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
 			platform: ''
 		} );
@@ -685,8 +685,8 @@
 		}, ie7Profile, true ), false, 'reject unkonwn browser if exactMatchOnly=true' );
 	} );
 
-	QUnit.test( 'test( testMap ) - LTR/RTL integration test', function ( assert ) {
-		var ie7Profile, original, testMap, testMatch;
+	QUnit.test( 'test( testMap ) - LTR/RTL integration test', ( assert ) => {
+		let ie7Profile, original, testMap, testMatch;
 		ie7Profile = $.client.profile( {
 			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
 			platform: ''
