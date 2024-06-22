@@ -102,6 +102,7 @@
 
 			let
 				versionNumber,
+				/* eslint-disable prefer-const */
 				key = nav.userAgent + '|' + nav.platform,
 
 				// Configuration
@@ -137,6 +138,7 @@
 				rPlatform = /(win|wow64|mac|linux|sunos|solaris|iphone|ipad)/,
 				// Translations for conforming operating system names
 				platformMap = { sunos: 'solaris', wow64: 'win' },
+				/* eslint-enable prefer-const */
 
 				// Pre-processing
 
@@ -214,6 +216,7 @@
 				}
 			}
 
+			// eslint-disable-next-line prefer-const
 			versionNumber = parseFloat( version, 10 ) || 0.0;
 
 			// Caching
@@ -283,6 +286,7 @@
 				// Not found, return true if exactMatchOnly not set, false otherwise
 				return !exactMatchOnly;
 			}
+			// eslint-disable-next-line prefer-const
 			conditions = map[ profile.name ];
 			if ( conditions === false ) {
 				// Match no versions
@@ -319,12 +323,12 @@
 						}
 					}
 					// compare will be -1, 0 or 1, depending on comparison result
-					// eslint-disable-next-line no-eval
+					// eslint-disable-next-line no-eval, security/detect-eval-with-expression
 					if ( !( eval( String( compare + op + '0' ) ) ) ) {
 						return false;
 					}
 				} else if ( typeof val === 'number' ) {
-					// eslint-disable-next-line no-eval
+					// eslint-disable-next-line no-eval, security/detect-eval-with-expression
 					if ( !( eval( 'profile.versionNumber' + op + val ) ) ) {
 						return false;
 					}

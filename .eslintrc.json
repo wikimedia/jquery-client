@@ -3,9 +3,5 @@
 	"extends": [
 		"wikimedia/client",
 		"wikimedia/jquery"
-	],
-	"rules": {
-		"prefer-const": "off",
-		"security/detect-eval-with-expression": "off"
-	}
+	]
 }
