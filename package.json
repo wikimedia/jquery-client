@@ -17,7 +17,7 @@
 		"authors": "git shortlog -se | sed 's/[[:space:]]*[0-9]*[[:space:]]//' && echo | grep -v jenkins > AUTHORS.txt",
 		"doc": "jsdoc -c jsdoc.json",
 		"lint": "eslint --cache --max-warnings 0",
-		"test": "npm run lint . && karma start"
+		"test": "npm run lint . && karma start && npm run doc"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.28.2",
