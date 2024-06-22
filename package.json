@@ -14,10 +14,10 @@
 		"LICENSE-MIT"
 	],
 	"scripts": {
-		"lint": "eslint --cache --max-warnings 0",
-		"test": "npm run lint . && karma start",
 		"authors": "git shortlog -se | sed 's/[[:space:]]*[0-9]*[[:space:]]//' && echo | grep -v jenkins > AUTHORS.txt",
-		"doc": "jsdoc -c jsdoc.json"
+		"doc": "jsdoc -c jsdoc.json",
+		"lint": "eslint --cache --max-warnings 0",
+		"test": "npm run lint . && karma start"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.28.2",
