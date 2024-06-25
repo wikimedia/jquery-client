@@ -630,8 +630,7 @@
 
 	QUnit.test( 'test( testMap )', ( assert ) => {
 		// Example from WikiEditor
-		let ie7Profile, testMatch, testMap;
-		testMap = {
+		const testMap = {
 			ltr: {
 				msie: [ [ '>=', '7.0' ] ],
 				firefox: [ [ '>=', '2' ] ],
@@ -651,13 +650,13 @@
 		};
 		// `test` uses eval, make sure no exceptions are thrown
 		// then do a basic return value type check
-		testMatch = $.client.test( testMap );
+		let testMatch = $.client.test( testMap );
 		assert.strictEqual( typeof testMatch, 'boolean', 'return for map with ltr/rtl split' );
 
 		testMatch = $.client.test( testMap.ltr );
 		assert.strictEqual( typeof testMatch, 'boolean', 'return for simple map without ltr/rtl split' );
 
-		ie7Profile = $.client.profile( {
+		const ie7Profile = $.client.profile( {
 			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
 			platform: ''
 		} );
@@ -686,13 +685,12 @@
 	} );
 
 	QUnit.test( 'test( testMap ) - LTR/RTL integration test', ( assert ) => {
-		let ie7Profile, original, testMap, testMatch;
-		ie7Profile = $.client.profile( {
+		const ie7Profile = $.client.profile( {
 			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
 			platform: ''
 		} );
-		original = document.body.className;
-		testMap = {
+		const original = document.body.className;
+		const testMap = {
 			ltr: {
 				msie: [ [ '>=', '6.0' ] ]
 			},
@@ -702,7 +700,7 @@
 		};
 
 		document.body.className = 'ltr';
-		testMatch = $.client.test( testMap, ie7Profile );
+		let testMatch = $.client.test( testMap, ie7Profile );
 		assert.strictEqual(
 			testMatch,
 			true,
