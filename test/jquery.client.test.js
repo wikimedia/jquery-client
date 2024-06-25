@@ -1,6 +1,6 @@
 ( function () {
 	// Object keyed by userAgent.
-	const uas = {
+	const userAgents = {
 		// Internet Explorer 6
 		'Internet Explorer 7': {
 			userAgent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
@@ -612,11 +612,10 @@
 	} );
 
 	QUnit.test( 'profile( navObject ) - samples', ( assert ) => {
-		let title, data, ret;
-		for ( title in uas ) {
-			data = uas[ title ];
+		for ( const title in userAgents ) {
+			const data = userAgents[ title ];
 			// Generate a client profile object and compare recursively
-			ret = $.client.profile( {
+			const ret = $.client.profile( {
 				userAgent: data.userAgent,
 				platform: data.platform
 			} );
