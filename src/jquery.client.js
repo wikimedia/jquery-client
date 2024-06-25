@@ -100,9 +100,7 @@
 				return profileCache[ nav.userAgent + '|' + nav.platform ];
 			}
 
-			let
-				versionNumber,
-				/* eslint-disable prefer-const */
+			const
 				key = nav.userAgent + '|' + nav.platform,
 
 				// Configuration
@@ -137,11 +135,10 @@
 				// Match the name of known operating systems
 				rPlatform = /(win|wow64|mac|linux|sunos|solaris|iphone|ipad)/,
 				// Translations for conforming operating system names
-				platformMap = { sunos: 'solaris', wow64: 'win' },
-				/* eslint-enable prefer-const */
+				platformMap = { sunos: 'solaris', wow64: 'win' };
 
-				// Pre-processing
-
+			// Pre-processing
+			let
 				ua = nav.userAgent,
 				match,
 				name = uk,
@@ -216,8 +213,7 @@
 				}
 			}
 
-			// eslint-disable-next-line prefer-const
-			versionNumber = parseFloat( version, 10 ) || 0.0;
+			const versionNumber = parseFloat( version, 10 ) || 0.0;
 
 			// Caching
 			profileCache[ key ] = {
@@ -274,10 +270,9 @@
 		 * @return {boolean} The current browser is in the support map
 		 */
 		test: function ( map, profile, exactMatchOnly ) {
-			let conditions, dir, i, op, val, j, pieceVersion, pieceVal, compare;
 			profile = $.isPlainObject( profile ) ? profile : $.client.profile();
 			if ( map.ltr && map.rtl ) {
-				dir = $( document.body ).is( '.rtl' ) ? 'rtl' : 'ltr';
+				const dir = $( document.body ).is( '.rtl' ) ? 'rtl' : 'ltr';
 				map = map[ dir ];
 			}
 			// Check over each browser condition to determine if we are running in a
@@ -286,8 +281,7 @@
 				// Not found, return true if exactMatchOnly not set, false otherwise
 				return !exactMatchOnly;
 			}
-			// eslint-disable-next-line prefer-const
-			conditions = map[ profile.name ];
+			const conditions = map[ profile.name ];
 			if ( conditions === false ) {
 				// Match no versions
 				return false;
@@ -296,14 +290,14 @@
 				// Match all versions
 				return true;
 			}
-			for ( i = 0; i < conditions.length; i++ ) {
-				op = conditions[ i ][ 0 ];
-				val = conditions[ i ][ 1 ];
+			for ( let i = 0; i < conditions.length; i++ ) {
+				const op = conditions[ i ][ 0 ];
+				const val = conditions[ i ][ 1 ];
 				if ( typeof val === 'string' ) {
 					// Perform a component-wise comparison of versions, similar to
 					// PHP's version_compare but simpler. '1.11' is larger than '1.2'.
-					pieceVersion = profile.version.toString().split( '.' );
-					pieceVal = val.split( '.' );
+					const pieceVersion = profile.version.toString().split( '.' );
+					const pieceVal = val.split( '.' );
 					// Extend with zeroes to equal length
 					while ( pieceVersion.length < pieceVal.length ) {
 						pieceVersion.push( '0' );
@@ -312,8 +306,8 @@
 						pieceVal.push( '0' );
 					}
 					// Compare components
-					compare = 0;
-					for ( j = 0; j < pieceVersion.length; j++ ) {
+					let compare = 0;
+					for ( let j = 0; j < pieceVersion.length; j++ ) {
 						if ( Number( pieceVersion[ j ] ) < Number( pieceVal[ j ] ) ) {
 							compare = -1;
 							break;
