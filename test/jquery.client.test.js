@@ -595,7 +595,7 @@
 
 	QUnit.module( 'jquery.client' );
 
-	QUnit.test( 'profile( navObject )', ( assert ) => {
+	QUnit.test( 'profile()', ( assert ) => {
 		const p = $.client.profile();
 
 		function unknownOrType( val, type, summary ) {
@@ -611,20 +611,17 @@
 		assert.strictEqual( typeof p.versionNumber, 'number', 'p.versionNumber is a number' );
 	} );
 
-	QUnit.test( 'profile( navObject ) - samples', ( assert ) => {
-		for ( const title in userAgents ) {
-			const data = userAgents[ title ];
-			// Generate a client profile object and compare recursively
-			const ret = $.client.profile( {
-				userAgent: data.userAgent,
-				platform: data.platform
-			} );
-			assert.deepEqual(
-				ret,
-				data.profile,
-				'Profile for ' + title + ':' + data.userAgent
-			);
-		}
+	QUnit.test.each( 'profile( Object )', userAgents, ( assert, data ) => {
+		// Generate a client profile object and compare recursively
+		const ret = $.client.profile( {
+			userAgent: data.userAgent,
+			platform: data.platform
+		} );
+		assert.deepEqual(
+			ret,
+			data.profile,
+			'Profile for ' + data.userAgent
+		);
 	} );
 
 	QUnit.test( 'test( testMap )', ( assert ) => {
