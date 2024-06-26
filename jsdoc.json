@@ -12,9 +12,7 @@
 		}
 	},
 	"plugins": [
-		"plugins/markdown",
-		"node_modules/jsdoc-class-hierarchy",
-		"node_modules/jsdoc-wmf-theme/plugins/summarize"
+		"node_modules/jsdoc-wmf-theme/plugins/default"
 	],
 	"source": {
 		"include": [ "src" ]
@@ -27,12 +25,7 @@
 		"wmf": {
 			"maintitle": "jQuery Client",
 			"repository": "https://gerrit.wikimedia.org/g/jquery-client",
-			"hideSections": [ "Events" ],
-			"linkMap": {
-				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-				"Object": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-				"Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error"
-			}
+			"hideSections": [ "Events" ]
 		}
 	}
 }
