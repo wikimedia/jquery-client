@@ -1,4 +1,5 @@
-coverage
-docs
-node_modules
-.eslintcache
+/coverage/
+/docs/
+/node_modules/
+/.eslintcache
+/package-lock.json
