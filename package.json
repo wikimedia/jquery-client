@@ -20,9 +20,9 @@
 		"test": "npm run lint . && karma start && npm run doc"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.31.0",
+		"eslint-config-wikimedia": "0.32.1",
 		"jquery": "3.7.1",
-		"jsdoc": "4.0.4",
+		"jsdoc": "4.0.5",
 		"jsdoc-wmf-theme": "1.1.0",
 		"karma": "6.4.3",
 		"karma-cli": "2.0.0",
