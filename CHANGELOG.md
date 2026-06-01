@@ -56,7 +56,7 @@
 
 ### Changed
 
-* Identify the new Microsoft Edge browser as `edge` instead of `msie`. (Brion Vibber)
+* Identify the new Microsoft Edge browser as `edge` instead of `msie`. (Brooke Vibber)
 
 1.0.0 / 2015-03-11
 ==================
